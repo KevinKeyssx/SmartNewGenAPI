@@ -19,18 +19,8 @@ public class TestController {
 	@Autowired
 	ITestService testService;
 	
-	/*@GetMapping(path = Constants.SEARCH)
-	public List<TestSNG> searchByIdLabel(){
-		return testService.findAll();
-	}*/
-	
 	@GetMapping(path = Constants.SEARCH)
 	public List<TestSNG> test(){
-		
-		
-		
-		
-		
 		return testService.findAll();
 	}
 	
