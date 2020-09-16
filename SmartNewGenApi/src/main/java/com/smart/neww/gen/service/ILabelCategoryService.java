@@ -1,3 +1,6 @@
+/**
+ * SmartNewGen exclusive class, all rights reserved
+ */
 package com.smart.neww.gen.service;
 
 import java.util.List;
@@ -5,11 +8,9 @@ import java.util.List;
 import com.smart.neww.gen.entity.LabelCategorySNG;
 
 /**
- * SmartNewGen exclusive class, all rights reserved
  * @author Kevin Candia
  * 07-09-2020
  */
-
 public interface ILabelCategoryService {
 
 	public LabelCategorySNG findByIdLabel(Long idLabel);

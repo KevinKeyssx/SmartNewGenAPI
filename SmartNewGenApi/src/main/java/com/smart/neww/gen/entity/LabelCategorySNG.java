@@ -1,3 +1,6 @@
+/**
+ * SmartNewGen exclusive class, all rights reserved
+ */
 package com.smart.neww.gen.entity;
 
 import java.io.Serializable;
@@ -10,16 +13,17 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 //import javax.validation.constraint.Size;
 
+import com.smart.neww.gen.util.ConstantsDataBase;
+
 import lombok.Data;
 
 /**
- * SmartNewGen exclusive class, all rights reserved
  * @author Kevin Candia
  * 07-09-2020
  */
 @Data
 @Entity
-@Table(name = "snglabel_categ", schema = "smartnewgen")
+@Table(name = ConstantsDataBase.TABLE_LABELCATEGORY, schema = ConstantsDataBase.SCHEMA)
 public class LabelCategorySNG implements Serializable{
 	
 	@Id
@@ -27,7 +31,7 @@ public class LabelCategorySNG implements Serializable{
 	@Column(name = "idlabcat")
 	private Long idLabelCategoty;
 	
-	@Column(name = "IDSLABEL")
+	@Column(name = "idslabel")
 	private Long idLabel;
 	
 	//@Size(min = 0, max = 100, message = "Exedió el maximo de caracteres permitidos")
