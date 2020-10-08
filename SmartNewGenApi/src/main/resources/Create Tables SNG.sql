@@ -7,13 +7,6 @@ CREATE TABLE SNGLABEL(--ETIQUETA
 ALTER SEQUENCE snglabel_idslabel_seq RESTART WITH 1000 INCREMENT BY 10;
 select * from  smartnewgen.snglabel s ;
 
-create table test (
-	IDTEST		SERIAL PRIMARY KEY NOT NULL,														 		--ID CATEGORIA DE LA ETIQUETA
-	NOMBRES 	VARCHAR(100),
-	APELLIDOS	VARCHAR(100)
-);
-select * from test;
-
 CREATE TABLE SNGLABEL_CATEG(--CATEGORIA DE LA ETIQUETA 	
 	IDLABCAT		SERIAL PRIMARY KEY NOT NULL,														 		--ID CATEGORIA DE LA ETIQUETA
 	IDSLABEL		INT NOT NULL,				 																--ETIQUETA
@@ -33,12 +26,6 @@ CREATE TABLE SNGWALLET_ENTITY(/*BILLETERA DE LA ENTIDAD*/
 	CONSTRAINT ENTITY_WALLET FOREIGN KEY (IDSENTITY) REFERENCES SNGENTITY(IDSENTITY)							--FK DE LA ENTIDAD
 );
 
- select labelcateg0_.idlabcat as idlabcat1_0_, labelcateg0_.slaactiv as slaactiv2_0_,
- labelcateg0_.slacacomm as slacacom3_0_, labelcateg0_.slabcatdesc as slabcatd4_0_, 
- labelcateg0_.idslabel as idslabel5_0_, labelcateg0_.labelskills as labelski6_0_ 
- from smartnewgen.snglabel_categ labelcateg0_ 
- where labelcateg0_.idslabel=1000;
-
 CREATE TABLE SNGCARD_WALLET(/*TABLA TARJETA EN LA BILLETERA*/
 	IDSCARD			SERIAL PRIMARY KEY NOT NULL,																--ID DE LA TARJETA DE LA ENTIDAD
 	IDSWALLET		INT NOT NULL,																				--ID DE LA BILLETERA
@@ -47,10 +34,6 @@ CREATE TABLE SNGCARD_WALLET(/*TABLA TARJETA EN LA BILLETERA*/
 	SSDUEDATE		VARCHAR(255) NOT NULL,																		--FECHA DE VENCIMIENTO DE LA TARJETA
 	SSCODECARD		VARCHAR(255) NOT NULL,																		--CODIGO DE VERIFICACION DE LA TARJETA
 	CONSTRAINT ENTITY_WALLET FOREIGN KEY (IDSWALLET) REFERENCES SNGWALLET_ENTITY(IDSWALLET)						--FK DE LA BILLETERA
-);
-
-create view V_LabelCateg(
-	select * from
 );
 
 CREATE TABLE SNGENTITY(/*TABLA DE LA ENTIDAD USARIO | EMPLEADO | EMPRESA | PROVEEDOR | OTROS*/
