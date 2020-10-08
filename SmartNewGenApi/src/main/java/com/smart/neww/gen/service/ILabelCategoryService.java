@@ -13,7 +13,7 @@ import com.smart.neww.gen.entity.LabelCategorySNG;
  */
 public interface ILabelCategoryService {
 
-	public LabelCategorySNG findByIdLabel(Long idLabel);
+	public List<LabelCategorySNG> findByIdLabel(Long idLabel);
 	
 	public List<LabelCategorySNG> findAll();
 

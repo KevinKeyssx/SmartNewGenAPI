@@ -13,7 +13,9 @@ public class Constants {
 	
 	public static final String VERSION = END_SNG + "/v1";
 	
-	public static final String END_LABEL = VERSION + "/labelcategory";
+	public static final String END_LABEL = VERSION + "/label";
+	
+	public static final String END_LABEL_CATEGORY = VERSION + "/labelcategory";
 	
 	public static final String END_TEST = "/test";
 	

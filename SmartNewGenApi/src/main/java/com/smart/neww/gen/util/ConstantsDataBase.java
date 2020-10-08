@@ -15,6 +15,9 @@ public class ConstantsDataBase {
 	public static final String TABLE_LABELCATEGORY = "snglabel_categ";
 
 	public static final String TABLE_ENTITY = "sngentity";
+	
+	
+	public static final String TABLE_V_CATEGORY = "V_LabelCateg";
 
 	private ConstantsDataBase() {
 		throw new IllegalAccessError("Illegal implementation.");

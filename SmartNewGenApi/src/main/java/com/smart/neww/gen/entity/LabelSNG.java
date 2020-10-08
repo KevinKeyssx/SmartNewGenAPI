@@ -27,16 +27,16 @@ public class LabelSNG implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "IDSLABEL")
+	@Column(name = "idslabel")
 	private Long idLabel;
 	
-	@Column(name = "SLABDESC")
+	@Column(name = "slabdesc")
 	private String description;
 	
-	@Column(name = "SLABACTIV")
+	@Column(name = "slabactiv")
 	private Boolean active;
 	
-	@Column(name = "SLABCOMM")
+	@Column(name = "slabcomm")
 	private String comment;
 	
 	private static final long serialVersionUID = 1L;
