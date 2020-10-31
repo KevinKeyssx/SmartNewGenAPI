@@ -1,7 +1,7 @@
 /**
  * SmartNewGen exclusive class, all rights reserved
  */
-package com.smart.neww.gen.util;
+package com.smart.neww.gen.common;
 
 import java.nio.charset.StandardCharsets;
 import java.security.InvalidAlgorithmParameterException;

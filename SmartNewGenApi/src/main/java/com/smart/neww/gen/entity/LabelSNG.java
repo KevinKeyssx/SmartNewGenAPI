@@ -12,7 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.smart.neww.gen.util.ConstantsDataBase;
+import com.smart.neww.gen.common.ConstantsDataBase;
 
 import lombok.Data;
 

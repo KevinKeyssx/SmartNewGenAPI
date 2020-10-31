@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
+import com.smart.neww.gen.common.Constants;
 import com.smart.neww.gen.dto.LabelCategotyDTO;
 import com.smart.neww.gen.entity.LabelCategorySNG;
 import com.smart.neww.gen.service.ILabelCategoryService;
-import com.smart.neww.gen.util.Constants;
 
 /**
  * @author Kevin Candia

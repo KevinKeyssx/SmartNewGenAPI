@@ -1,7 +1,7 @@
 /**
  * SmartNewGen exclusive class, all rights reserved
  */
-package com.smart.neww.gen.util;
+package com.smart.neww.gen.common;
 
 /**
  * @author Kevin Candia 16-09-2020

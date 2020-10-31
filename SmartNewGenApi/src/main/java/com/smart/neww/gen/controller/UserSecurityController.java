@@ -6,7 +6,8 @@ package com.smart.neww.gen.controller;
  */
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.smart.neww.gen.util.Constants;
+
+import com.smart.neww.gen.common.Constants;
 
 @RestController
 @RequestMapping(Constants.END_USER)

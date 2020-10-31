@@ -14,7 +14,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
-import com.smart.neww.gen.util.ConstantsDataBase;
+import com.smart.neww.gen.common.ConstantsDataBase;
 
 import lombok.Data;
 

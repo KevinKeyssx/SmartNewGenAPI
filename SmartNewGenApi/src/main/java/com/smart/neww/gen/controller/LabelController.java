@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.smart.neww.gen.common.Constants;
 import com.smart.neww.gen.dto.LabelDTO;
 import com.smart.neww.gen.service.ILabelService;
-import com.smart.neww.gen.util.Constants;
 
 import javassist.NotFoundException;
 
