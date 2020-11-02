@@ -1,5 +1,6 @@
 package com.smart.neww.gen.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,13 +17,28 @@ public class LabelCategoryImpl implements ILabelCategoryService{
 	@Autowired
 	private ILabelCategoryRepository iLabelCategory;
 
-	public List<LabelCategorySNG> findByIdLabel(Long idLabel) {
-		return iLabelCategory.findByIdLabel(idLabel);
+	public List<LabelCategotyDTO> findByIdLabel(Long idLabel) {
+		List<LabelCategotyDTO> labelCategorysDto = new ArrayList<>();
+		List<LabelCategorySNG> labelCategorysSNG = iLabelCategory.findByIdLabel(idLabel);
+		
+		for (LabelCategorySNG labelCategoryssSNG : labelCategorysSNG) {
+			labelCategorysDto.add(new LabelCategotyDTO(
+				labelCategoryssSNG.getIdLabel(),
+				labelCategoryssSNG.getIdLabelCategoty(),
+				labelCategoryssSNG.getDescription(),
+				labelCategoryssSNG.getActive(),
+				labelCategoryssSNG.getSkills(),
+				labelCategoryssSNG.getComment()
+			));
+		}
+		
+		return labelCategorysDto;
 	}
 
 	@Override
-	public List<LabelCategorySNG> findAll() {
-		return iLabelCategory.findAll();
+	public List<LabelCategotyDTO> findAll() {
+		//return iLabelCategory.findAll();
+		return null;
 	}
 
 }

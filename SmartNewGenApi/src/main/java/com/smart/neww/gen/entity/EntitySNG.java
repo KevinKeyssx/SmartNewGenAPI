@@ -13,7 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.smart.neww.gen.common.ConstantsDataBase;
+import com.smart.neww.gen.common.ConstantsDB;
 
 import lombok.Data;
 
@@ -23,7 +23,7 @@ import lombok.Data;
  */
 @Data
 @Entity
-@Table(name = ConstantsDataBase.TABLE_ENTITY, schema = ConstantsDataBase.SCHEMA)
+@Table(name = ConstantsDB.TABLE_ENTITY, schema = ConstantsDB.SCHEMA)
 public class EntitySNG implements Serializable{
 	
 	@Id

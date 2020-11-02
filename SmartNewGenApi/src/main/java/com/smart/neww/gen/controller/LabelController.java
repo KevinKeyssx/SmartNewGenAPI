@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.smart.neww.gen.common.Constants;
 import com.smart.neww.gen.dto.LabelDTO;
+import com.smart.neww.gen.exception.ExpectationFailedException;
+import com.smart.neww.gen.exception.NotFoundException;
 import com.smart.neww.gen.service.ILabelService;
-
-import javassist.NotFoundException;
 
 /**
  * @author Kevin Candia
@@ -28,13 +28,16 @@ public class LabelController {
 	@Autowired
 	private ILabelService iLabel;
 
-	@GetMapping(path = Constants.SEARCH)
-	public ResponseEntity<LabelDTO> findByIdLabel(@RequestParam(value = "number", required = true) Long number) throws NotFoundException {
+	@GetMapping(path = Constants.SEARCH, produces = "application/json")
+	public ResponseEntity<LabelDTO> findByIdLabel(@RequestParam(value = "number", required = true) Long number) {
 		LabelDTO labelDTO = iLabel.findByIdLabel(number);
 		
 		if(labelDTO == null) 
-			throw new NotFoundException("La etiqueta a buscar no existe");
+			throw new NotFoundException("La etiqueta: " + number + " no existe");
 		
+		if(labelDTO.getActive().equals(Boolean.FALSE))
+			throw new ExpectationFailedException("La etiqueta: " + number + " ya no esta disponible.");
+			
 		return new ResponseEntity<>(labelDTO, HttpStatus.OK);
 	}
 	

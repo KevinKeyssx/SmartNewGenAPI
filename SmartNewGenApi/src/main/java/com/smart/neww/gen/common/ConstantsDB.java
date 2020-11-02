@@ -6,7 +6,7 @@ package com.smart.neww.gen.common;
 /**
  * @author Kevin Candia 16-09-2020
  */
-public class ConstantsDataBase {
+public class ConstantsDB {
 
 	public static final String SCHEMA = "smartnewgen";
 	
@@ -19,7 +19,7 @@ public class ConstantsDataBase {
 	
 	public static final String TABLE_V_CATEGORY = "V_LabelCateg";
 
-	private ConstantsDataBase() {
+	private ConstantsDB() {
 		throw new IllegalAccessError("Illegal implementation.");
 	}
 

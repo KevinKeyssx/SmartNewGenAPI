@@ -4,15 +4,17 @@
 package com.smart.neww.gen.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.smart.neww.gen.common.ConstantsDataBase;
+import com.smart.neww.gen.common.ConstantsDB;
 
 import lombok.Data;
 
@@ -22,7 +24,7 @@ import lombok.Data;
  */
 @Data
 @Entity
-@Table(name = ConstantsDataBase.TABLE_LABEL, schema = ConstantsDataBase.SCHEMA)
+@Table(name = ConstantsDB.TABLE_LABEL, schema = ConstantsDB.SCHEMA)
 public class LabelSNG implements Serializable{
 
 	@Id

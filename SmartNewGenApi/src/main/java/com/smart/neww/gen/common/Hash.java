@@ -30,7 +30,7 @@ public class Hash {
 	private static final String DESEDE = "AES/CBC/PKCS5Padding";
 	private static final String SHA512 = "SHA-512";
 	private static final String MD5 = "MD5";
-	
+
 	public Hash(Boolean aux) {
 		if (Boolean.FALSE.equals(aux) ) throw new UnsupportedOperationException("Bad implementation.");
 	}
@@ -76,7 +76,7 @@ public class Hash {
         SecretKey encryptionKey = keyGenerator.generateKey();
 
         IvParameterSpec iv = new IvParameterSpec("0102030405060708".getBytes());
-        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+        Cipher cipher = Cipher.getInstance(DESEDE);
         cipher.init(Cipher.ENCRYPT_MODE, encryptionKey, iv);
         byte[] encryptData = cipher.doFinal(data);
 
@@ -89,16 +89,16 @@ public class Hash {
     	KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
         keyGenerator.init(128);
         SecretKey encryptionKey = keyGenerator.generateKey();
-    	
+  
         IvParameterSpec iv = new IvParameterSpec("0102030405060708".getBytes());
         SecretKeySpec spec = new SecretKeySpec(encryptionKey.getEncoded(), "AES");
-        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+        Cipher cipher = Cipher.getInstance(DESEDE);
         cipher.init(Cipher.DECRYPT_MODE, spec, iv);
 
         System.out.println(data.length);
         return new String(cipher.doFinal(data));
     }
-	
+
 	public String getEncryptSHA512(String text) throws NoSuchAlgorithmException {
 		MessageDigest md = MessageDigest.getInstance(SHA512);
         md.update(text.getBytes());

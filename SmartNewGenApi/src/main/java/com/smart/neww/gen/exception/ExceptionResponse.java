@@ -1,25 +1,25 @@
 /**
  * SmartNewGen exclusive class, all rights reserved
  */
-package com.smart.neww.gen.dto;
+package com.smart.neww.gen.exception;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**
  * @author Kevin Candia
- * 23-09-2020
+ * 01-11-2020
  */
 @Data
 @AllArgsConstructor
-public class Label implements Serializable{
-
-	protected Long idLabel;
-	protected String description;
-	protected Boolean active;
-	protected String comment;
+public class ExceptionResponse implements Serializable{
+	
+	private LocalDateTime timestamp;
+	private String message;
+	private String details;
 	private static final long serialVersionUID = 1L;
 
 }

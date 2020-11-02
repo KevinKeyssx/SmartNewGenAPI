@@ -8,9 +8,9 @@ package com.smart.neww.gen.exception;
  * 23-09-2020
  */
 @SuppressWarnings("serial")
-public class NotFoundException extends RuntimeException{
-
-	public NotFoundException(String message) {
+public class UnauthorizedException extends RuntimeException{
+	
+	public UnauthorizedException(String message) {
 		super(message);
 	}
 

@@ -5,12 +5,12 @@ package com.smart.neww.gen.exception;
 
 /**
  * @author Kevin Candia
- * 23-09-2020
+ * 01-11-2020
  */
 @SuppressWarnings("serial")
-public class NotFoundException extends RuntimeException{
+public class ExpectationFailedException extends RuntimeException{
 
-	public NotFoundException(String message) {
+	public ExpectationFailedException(String message) {
 		super(message);
 	}
 

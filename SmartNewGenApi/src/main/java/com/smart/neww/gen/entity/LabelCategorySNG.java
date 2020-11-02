@@ -14,7 +14,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
-import com.smart.neww.gen.common.ConstantsDataBase;
+import com.smart.neww.gen.common.ConstantsDB;
 
 import lombok.Data;
 
@@ -24,7 +24,7 @@ import lombok.Data;
  */
 @Data
 @Entity
-@Table(name = ConstantsDataBase.TABLE_LABELCATEGORY, schema = ConstantsDataBase.SCHEMA)
+@Table(name = ConstantsDB.TABLE_LABELCATEGORY, schema = ConstantsDB.SCHEMA)
 public class LabelCategorySNG implements Serializable{
 
 	@Id

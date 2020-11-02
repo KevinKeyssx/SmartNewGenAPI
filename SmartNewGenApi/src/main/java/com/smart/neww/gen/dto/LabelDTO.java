@@ -7,8 +7,7 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.logging.Logger;
 
-import com.smart.neww.gen.entity.LabelCategorySNG;
-
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -18,29 +17,21 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
+
 public class LabelDTO extends Label implements Serializable{
-	
-	private static final Logger LOGGER = Logger.getLogger(LabelDTO.class.getName());
-	
-	public LabelDTO() {
-		LOGGER.info("New Label...");
-	}
 
 	/**
-	 * @param label
+	 * @param idLabel
+	 * @param description
+	 * @param active
+	 * @param comment
 	 */
-	public LabelDTO(List<LabelCategorySNG> label) {
-		super();
-		this.label = label;
-		LOGGER.info("Start Label...");
+	public LabelDTO(Long idLabel, String description, Boolean active, String comment, List<LabelCategotyDTO> label) {
+		super(idLabel, description, active, comment);
+		this.setLabel(label);
 	}
-
-	//idLabel
-	//Description
-	//Active
-	//Commentary
-	//Skills
-	private List<LabelCategorySNG> label;
+	private static final Logger LOGGER = Logger.getLogger(LabelDTO.class.getName());
+	private List<LabelCategotyDTO> label;
 	private static final long serialVersionUID = 1L;
-	
+
 }
