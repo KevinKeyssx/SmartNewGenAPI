@@ -27,7 +27,7 @@ import org.apache.commons.codec.binary.Hex;
 public class Hash {
 
 	private static final String SECRET = "qualityinfosolutions"; // llave para encriptar datos
-	private static final String DESEDE = "AES/CBC/PKCS5Padding";
+	private static final String DESEDE = "AES/GCM/NoPadding";
 	private static final String SHA512 = "SHA-512";
 	private static final String MD5 = "MD5";
 
@@ -89,7 +89,7 @@ public class Hash {
     	KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
         keyGenerator.init(128);
         SecretKey encryptionKey = keyGenerator.generateKey();
-  
+ 
         IvParameterSpec iv = new IvParameterSpec("0102030405060708".getBytes());
         SecretKeySpec spec = new SecretKeySpec(encryptionKey.getEncoded(), "AES");
         Cipher cipher = Cipher.getInstance(DESEDE);

@@ -1,4 +1,4 @@
-CREATE OR REPLACE VIEW smartnewgen.V_LabelCateg
+CREATE OR ALTER VIEW smartnewgen.V_LabelCateg
 AS select cat.idlabcat, lab.idslabel, lab.slabdesc, cat.slabcatdesc,  cat.labelskills, cat.slaactiv, cat.slacacomm,
 		lab.slabactiv, lab.slabcomm
 	from smartnewgen.snglabel_categ cat
@@ -10,7 +10,7 @@ select * from smartnewgen.V_LabelCateg where idlabcat = 1;
 
 select * from snglabel s ;
 
-select * from smartnewgen.V_LabelCateg where idlabcat = ?
+select * from smartnewgen.V_LabelCateg where idlabcat = '?';
 
 select * from sngentity s ;
 

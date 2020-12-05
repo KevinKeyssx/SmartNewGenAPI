@@ -11,9 +11,11 @@ public class LabelCategotyDTO extends Label implements Serializable{
 
 	/**
 	 * @param idLabel
+	 * @param idLabelCategoty
 	 * @param description
 	 * @param active
 	 * @param comment
+	 * @param skills
 	 */
 	public LabelCategotyDTO(Long idLabel, Long idLabelCategoty, String description, Boolean active, String comment, String skills) {
 		super(idLabel, description, active, comment);

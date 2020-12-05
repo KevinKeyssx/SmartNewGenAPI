@@ -25,42 +25,42 @@ import lombok.Data;
 @Entity
 @Table(name = ConstantsDB.TABLE_ENTITY, schema = ConstantsDB.SCHEMA)
 public class EntitySNG implements Serializable{
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "idsentity")
+	@Column(name = "idsentity", nullable = false)
 	private Long idEntity;
-	
-	@Column(name = "sdescentity")
-	private String nameRazon;
-	
-	@Column(name = "slastentity")
-	private String lastNum;
-	
-	@Column(name = "sngpoints")
+
+	@Column(name = "sdescentity", nullable = false)
+	private String nameEntity;
+
+	@Column(name = "slastentity", nullable = false)
+	private String lastEntity;
+
+	@Column(name = "sngpoints", nullable = false)
 	private Long points;
-	
-	@Column(name = "sngemail")
+
+	@Column(name = "sngemail", nullable = false, unique = true)
 	private String email;
-	
-	@Column(name = "sngnumber")
+
+	@Column(name = "sngnumber", nullable = false)
 	private String telephone;
-	
-	@Column(name = "sngdatebir")
+
+	@Column(name = "sngdatebir", nullable = true)
 	private Date birdDate;
-	
-	@Column(name = "sdatearri")
+
+	@Column(name = "sdatearri", nullable = false)
 	private Date daterArrive;
-	
-	@Column(name = "idlabcat")
-	private Long idLabelcategory;
-	
-	@Column(name = "sngactive")
+
+	@Column(name = "idlabcat", nullable = false)
+	private LabelCategorySNG idLabelcategory;
+
+	@Column(name = "sngactive", nullable = false)
 	private Boolean active;
-	
-	@Column(name = "sngcomm")
+
+	@Column(name = "sngcomm", nullable = true)
 	private String comment;
 
 	private static final long serialVersionUID = 1L;
-	
+
 }

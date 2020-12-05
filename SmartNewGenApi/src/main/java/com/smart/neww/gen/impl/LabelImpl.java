@@ -34,7 +34,7 @@ public class LabelImpl implements ILabelService {
 
 		if( iLabel.findByIdLabel(idLabel) == null) 
 			return null;
-		
+
 		return new LabelDTO(
 			label.getIdLabel(),
 			label.getDescription(),

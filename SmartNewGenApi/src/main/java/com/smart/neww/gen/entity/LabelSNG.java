@@ -29,18 +29,18 @@ public class LabelSNG implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "idslabel")
+	@Column(name = "idslabel", nullable = false)
 	private Long idLabel;
-	
-	@Column(name = "slabdesc")
+
+	@Column(name = "slabdesc", nullable = false)
 	private String description;
-	
-	@Column(name = "slabactiv")
+
+	@Column(name = "slabactiv", nullable = false)
 	private Boolean active;
-	
-	@Column(name = "slabcomm")
+
+	@Column(name = "slabcomm", nullable = false)
 	private String comment;
-	
+
 	private static final long serialVersionUID = 1L;
 
 }

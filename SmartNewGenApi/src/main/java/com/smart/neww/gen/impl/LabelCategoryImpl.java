@@ -20,7 +20,7 @@ public class LabelCategoryImpl implements ILabelCategoryService{
 	public List<LabelCategotyDTO> findByIdLabel(Long idLabel) {
 		List<LabelCategotyDTO> labelCategorysDto = new ArrayList<>();
 		List<LabelCategorySNG> labelCategorysSNG = iLabelCategory.findByIdLabel(idLabel);
-		
+
 		for (LabelCategorySNG labelCategoryssSNG : labelCategorysSNG) {
 			labelCategorysDto.add(new LabelCategotyDTO(
 				labelCategoryssSNG.getIdLabel(),
@@ -31,7 +31,7 @@ public class LabelCategoryImpl implements ILabelCategoryService{
 				labelCategoryssSNG.getComment()
 			));
 		}
-		
+
 		return labelCategorysDto;
 	}
 

@@ -5,8 +5,6 @@ package com.smart.neww.gen.service;
 
 import com.smart.neww.gen.dto.LabelDTO;
 
-import javassist.NotFoundException;
-
 /**
  * @author Kevin Candia
  * 22-09-2020

@@ -11,7 +11,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 import com.smart.neww.gen.common.ConstantsDB;
@@ -33,12 +32,10 @@ public class LabelCategorySNG implements Serializable{
 	private Long idLabelCategoty;
 
 	@Column(name = "idslabel")
-	@NotEmpty
 	private Long idLabel;
 
 	@Column(name = "slabcatdesc")
 	@Size(min = 1, max = 100, message = "Excedió el máximo de caractéres permitidos")
-	@NotEmpty
 	private String description;
 
 	@Column(name = "labelskills")
