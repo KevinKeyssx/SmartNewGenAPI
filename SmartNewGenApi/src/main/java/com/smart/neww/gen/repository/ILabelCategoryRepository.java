@@ -10,8 +10,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.smart.neww.gen.dto.LabelCategotyDTO;
 import com.smart.neww.gen.entity.LabelCategorySNG;
+import com.smart.neww.gen.entity.LabelSNG;
 
 /**
  * @author Kevin Candia
@@ -21,6 +21,8 @@ import com.smart.neww.gen.entity.LabelCategorySNG;
 public interface ILabelCategoryRepository extends JpaRepository<LabelCategorySNG, Long>{
 
 	//@Query(value = "select * from smartnewgen.V_LabelCateg where idlabcat = ?", nativeQuery = true)
-	List<LabelCategorySNG> findByIdLabel(@Param("idLabel") Long idLabeltest);
+	List<LabelCategorySNG> findByLabel(@Param("idsLabel") LabelSNG idsLabel);
+
+	List<LabelCategorySNG> findByIdLabelCategory(@Param("idsLabel") Long idsLabel);
 
 }

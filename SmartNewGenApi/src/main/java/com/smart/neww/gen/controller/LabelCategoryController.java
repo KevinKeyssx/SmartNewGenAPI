@@ -15,8 +15,12 @@ import org.springframework.http.ResponseEntity;
 
 import com.smart.neww.gen.common.Constants;
 import com.smart.neww.gen.dto.LabelCategotyDTO;
+import com.smart.neww.gen.dto.LabelDTO;
 import com.smart.neww.gen.entity.LabelCategorySNG;
+import com.smart.neww.gen.exception.ExpectationFailedException;
+import com.smart.neww.gen.exception.NotFoundException;
 import com.smart.neww.gen.service.ILabelCategoryService;
+import com.smart.neww.gen.service.ILabelService;
 
 /**
  * @author Kevin Candia
@@ -27,11 +31,16 @@ import com.smart.neww.gen.service.ILabelCategoryService;
 public class LabelCategoryController {
 
 	@Autowired
-	private ILabelCategoryService labelCategory;
+	private ILabelCategoryService iLabelCategory;
 
-	/*@GetMapping(path = Constants.SEARCH)
-	public List<LabelCategotyDTO> findByIdLabel(@RequestParam(value = "number", required = true) Long number) {
-		return labelCategory.findByIdLabel(number);
-	}*/
+	@GetMapping(path = Constants.SEARCH, produces = "application/json")
+	public ResponseEntity<List<LabelDTO>> findByIdLabel(@RequestParam(value = "number", required = true) Long number) {
+		List<LabelDTO> labelDTO = iLabelCategory.findByIdLabel(number);
+
+		if(!labelDTO.isEmpty() && labelDTO.get(0).getActive().equals(Boolean.FALSE))
+			throw new ExpectationFailedException("La etiqueta: " + labelDTO.get(0).getDescription() + " ya no esta disponible.");
+
+		return new ResponseEntity<>(labelDTO, labelDTO.isEmpty() ? HttpStatus.NO_CONTENT : HttpStatus.OK);
+	}
 
 }

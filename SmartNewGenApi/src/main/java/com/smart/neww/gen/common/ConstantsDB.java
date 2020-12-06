@@ -8,7 +8,7 @@ package com.smart.neww.gen.common;
  */
 public class ConstantsDB {
 
-	public static final String SCHEMA = "smartnewgen";
+	public static final String SCHEMA = "smartnewgentest";
 	
 	public static final String TABLE_LABEL = "snglabel";
 

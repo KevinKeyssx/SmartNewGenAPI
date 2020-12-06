@@ -6,6 +6,7 @@ package com.smart.neww.gen.service;
 import java.util.List;
 
 import com.smart.neww.gen.dto.LabelCategotyDTO;
+import com.smart.neww.gen.dto.LabelDTO;
 
 /**
  * @author Kevin Candia
@@ -13,8 +14,7 @@ import com.smart.neww.gen.dto.LabelCategotyDTO;
  */
 public interface ILabelCategoryService {
 
-	public List<LabelCategotyDTO> findByIdLabel(Long idLabel);
-	
+	public List<LabelDTO> findByIdLabel(Long idLabel);
 	public List<LabelCategotyDTO> findAll();
 
 }

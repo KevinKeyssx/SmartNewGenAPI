@@ -5,9 +5,7 @@ package com.smart.neww.gen.dto;
 
 import java.io.Serializable;
 import java.util.List;
-import java.util.logging.Logger;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -17,7 +15,6 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-
 public class LabelDTO extends Label implements Serializable{
 
 	/**
@@ -30,7 +27,7 @@ public class LabelDTO extends Label implements Serializable{
 		super(idLabel, description, active, comment);
 		this.setLabel(label);
 	}
-	private static final Logger LOGGER = Logger.getLogger(LabelDTO.class.getName());
+
 	private List<LabelCategotyDTO> label;
 	private static final long serialVersionUID = 1L;
 
