@@ -29,7 +29,7 @@ public class LabelCategoryImpl implements ILabelCategoryService{
 	@Autowired
 	private ILabelCategoryRepository iLabelCategory;
 
-	private static final Logger LOG = LoggerFactory.getLogger("ILabelCategoryRepository");
+	private static final Logger LOG = LoggerFactory.getLogger(ILabelCategoryRepository.class.toString());
 
 	public List<LabelDTO> findByIdLabel(Long idLabel) {
 		LOG.info("*START - findByIdLabelCategory*");
@@ -63,11 +63,4 @@ public class LabelCategoryImpl implements ILabelCategoryService{
 		LOG.info("*FINISHED - findByIdLabelCategory*");
 		return labelDto;
 	}
-
-	@Override
-	public List<LabelCategotyDTO> findAll() {
-		//return iLabelCategory.findAll();
-		return null;
-	}
-
 }

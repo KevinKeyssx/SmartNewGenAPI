@@ -15,7 +15,7 @@ import com.smart.neww.gen.entity.LabelSNG;
  */
 @Repository
 public interface ILabelRepository extends JpaRepository<LabelSNG, Long>{
-	
-	LabelSNG findByIdLabel(@Param("idLabel") Long idLabeltest);
+
+	LabelSNG findByIdLabel(@Param("idLabel") Long idLabel);
 
 }

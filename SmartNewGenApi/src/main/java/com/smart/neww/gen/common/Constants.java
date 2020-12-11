@@ -18,6 +18,8 @@ public class Constants {
 	public static final String END_LABEL_CATEGORY = VERSION + "/labelcategory";
 	
 	public static final String SEARCH = "/search";
+
+	public static final String SEARCH_ALL = "/searchall";
 	
 	public static final String INSERT = "/insert";
 	

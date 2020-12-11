@@ -15,6 +15,5 @@ import com.smart.neww.gen.dto.LabelDTO;
 public interface ILabelCategoryService {
 
 	public List<LabelDTO> findByIdLabel(Long idLabel);
-	public List<LabelCategotyDTO> findAll();
 
 }
