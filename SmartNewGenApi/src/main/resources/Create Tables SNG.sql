@@ -203,8 +203,6 @@ select * from SNGPROD_STORE;
 ALTER SEQUENCE sbuprovide_sidbuprv_seq RESTART WITH 1000 INCREMENT BY 10;
 select * from sbuprovide s ;
 
-
-
 ALTER SEQUENCE sbuprovide_sidbuprv_seq RESTART WITH 1000 INCREMENT BY 10;
 select * from sbuprovide s ;
 

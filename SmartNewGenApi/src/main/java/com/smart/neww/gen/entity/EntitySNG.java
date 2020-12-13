@@ -11,6 +11,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.smart.neww.gen.common.ConstantsDB;
@@ -52,7 +54,8 @@ public class EntitySNG implements Serializable{
 	@Column(name = "sdatearri", nullable = false)
 	private Date daterArrive;
 
-	@Column(name = "idlabcat", nullable = false)
+	@ManyToOne
+	@JoinColumn(name = "idlabcat", nullable = false)
 	private LabelCategorySNG idLabelcategory;
 
 	@Column(name = "sngactive", nullable = false)

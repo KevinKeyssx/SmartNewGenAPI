@@ -48,8 +48,8 @@ public class LabelCategoryImpl implements ILabelCategoryService{
 				labelCategoryssSNG.getIdLabelCategory(),
 				labelCategoryssSNG.getDescription(),
 				labelCategoryssSNG.getActive(),
-				labelCategoryssSNG.getSkills(),
-				labelCategoryssSNG.getComment()
+				labelCategoryssSNG.getComment(),
+				labelCategoryssSNG.getSkills()
 			));
 		}
 		//Cargamos los valores de la etiqueta

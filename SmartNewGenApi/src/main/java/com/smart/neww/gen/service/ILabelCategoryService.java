@@ -5,7 +5,6 @@ package com.smart.neww.gen.service;
 
 import java.util.List;
 
-import com.smart.neww.gen.dto.LabelCategotyDTO;
 import com.smart.neww.gen.dto.LabelDTO;
 
 /**
