@@ -3,8 +3,6 @@
  */
 package com.smart.neww.gen.service;
 
-import java.util.List;
-
 import com.smart.neww.gen.dto.EntityDTO;
 /**
  * @author Kevin Candia
@@ -14,6 +12,6 @@ public interface IEntityService {
 
     public EntityDTO findByIdEntity(Long idEntity);
 
-    public List<EntityDTO> findAll();
+    public EntityDTO findByEmail(String email);
 
 }

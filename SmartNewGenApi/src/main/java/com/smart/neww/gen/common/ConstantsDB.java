@@ -16,6 +16,8 @@ public class ConstantsDB {
 
 	public static final String TABLE_ENTITY = "sngentity";
 
+	public static final String TABLE_WALLET = "sngwallet_entity";
+
 	private ConstantsDB() {
 		throw new IllegalAccessError("Illegal implementation.");
 	}

@@ -34,11 +34,16 @@ public class EntityImpl implements IEntityService {
         return fillEntityDTO(iEntityCategory.findByIdEntity(idEntity));
     }
 
+    @Override
+    public EntityDTO findByEmail(String email) {
+        return fillEntityDTO(iEntityCategory.findByEmail(email));
+    }
+
     private EntityDTO fillEntityDTO(EntitySNG entity){
+        LOG.info("*START - fillEntityDTO");
+
         if(entity == null)
             return null;
-
-        LOG.info("*START - fillEntityDTO: {}", entity);
 
         return new EntityDTO(
             entity.getIdEntity(),
@@ -53,17 +58,6 @@ public class EntityImpl implements IEntityService {
             entity.getActive(),
             entity.getComment()
         );
-    }
-
-    @Override
-    public List<EntityDTO> findAll() {
-        List<EntitySNG> entitys = iEntityCategory.findAll();
-        List<EntityDTO> entityDTO = new ArrayList<>();
-
-        for (EntitySNG entity : entitys) {
-            
-        }
-        return null;
     }
 
 }
