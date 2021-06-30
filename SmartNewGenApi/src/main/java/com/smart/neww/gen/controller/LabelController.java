@@ -30,14 +30,11 @@ public class LabelController {
 	private ILabelService iLabel;
 
 	@GetMapping(path = Constants.SEARCH, produces = "application/json")
-	public ResponseEntity<LabelDTO> findByIdLabel(@RequestParam(
-			value = "number", required = true) Long number) {
-		LabelDTO labelDTO = iLabel.findByIdLabel(number);
+	public ResponseEntity<LabelDTO> findByIdLabel(@RequestParam(value = "number", required = true) Long number) {
+		var labelDTO = iLabel.findByIdLabel(number);
 
 		if(labelDTO != null && labelDTO.getActive().equals(Boolean.FALSE))
-			throw new ExpectationFailedException("La etiqueta: "
-				.concat(labelDTO.getDescription())
-				.concat(" ya no esta disponible."));
+			throw new ExpectationFailedException("La etiqueta: ".concat(labelDTO.getDescription()).concat(" ya no está disponible."));
 
 		return new ResponseEntity<>(labelDTO, new Util(true).typeStatus(labelDTO));
 	}

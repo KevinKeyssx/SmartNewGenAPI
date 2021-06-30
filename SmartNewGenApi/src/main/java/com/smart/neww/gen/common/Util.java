@@ -20,7 +20,7 @@ public class Util implements Serializable {
 
     public Util(Boolean value) {
         if (Boolean.FALSE.equals(value))
-            throw new IllegalAccessError("Acceso ilegal.");
+            throw new IllegalAccessError("Ilegal access.");
     }
 
     public HttpStatus typeStatus(Object object){

@@ -38,8 +38,7 @@ public class UserSecurityController {
     private IEntityService iEntity;
 
 	@GetMapping(path = Constants.SEARCH, produces = "application/json")
-	public ResponseEntity<EntityDTO> findBy(
-			@RequestParam(value = "entity", required = true) String entity) {
+	public ResponseEntity<EntityDTO> findBy(@RequestParam(value = "entity", required = true) String entity) {
 		LOG.info("*START - Controller findBy*");
 		//Obtenemos la entidad por el tipo
 		EntityDTO entityDTO = util.isLong(entity) ?
@@ -52,11 +51,10 @@ public class UserSecurityController {
 	}
 
 	@PostMapping(path = Constants.SEARCH, produces = "application/json")
-	public ResponseEntity<EntityDTO> newEntity(
-			@Valid @RequestBody(required = true) EntityDTO entityDTO) {
+	public ResponseEntity<EntityDTO> newEntity(@Valid @RequestBody(required = true) EntityDTO entityDTO) {
 		LOG.info("*START - Controller newEntity*");
 		//Obtenemos la entidad por el tipo
-		
+
 		//Validamos si la entidad sigue activa
 		isActive(entityDTO);
 		LOG.info("*FINISHED - Controller findBy*");
@@ -64,8 +62,7 @@ public class UserSecurityController {
 	}
 
 	private void isActive(EntityDTO entityDTO){
-		if (entityDTO == null)
-			return;
+		if (entityDTO == null) return;
 		util.isActive(entityDTO.getActive(), entityDTO.getNameEntity(), entityDTO.getLastEntity());
 	}
 
