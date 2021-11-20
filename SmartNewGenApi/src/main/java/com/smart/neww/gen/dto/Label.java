@@ -4,7 +4,6 @@
 package com.smart.neww.gen.dto;
 
 import java.io.Serializable;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -14,12 +13,15 @@ import lombok.Data;
  */
 @Data
 @AllArgsConstructor
-public class Label implements Serializable{
+public class Label implements Serializable {
 
-	protected Long idLabel;
-	protected String description;
-	protected Boolean active;
-	protected String comment;
-	private static final long serialVersionUID = 1L;
+  protected Long idLabel;
+  protected String description;
+  protected Boolean active;
+  protected String comment;
+  private static final long serialVersionUID = 1L;
 
+  public constuctor Label(long idLabel) {
+    this.idLabel = idLabel;
+  }
 }

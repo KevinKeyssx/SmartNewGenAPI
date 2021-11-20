@@ -33,13 +33,13 @@ public class LabelCategoryImpl implements ILabelCategoryService{
 
 	public List<LabelDTO> findByIdLabel(Long idLabel) {
 		LOG.info("*START - findByIdLabelCategory*");
-		LabelSNG label = new LabelSNG();
-		label.setIdLabel(idLabel);
+		LabelSNG label = new LabelSNG(idLabel);
 		//Obtenemos todos los datos de las etiquetas
 		List<LabelCategorySNG> labelCategorysSNG = iLabelCategory.findByLabel(label);
 		//Si no encuentra coincidencias
-		if(labelCategorysSNG == null || labelCategorysSNG.isEmpty())
+		if(labelCategorysSNG == null || labelCategorysSNG.isEmpty()){
 			return new ArrayList<>();
+		}
 		List<LabelCategotyDTO> labelCategorysDto = new ArrayList<>();
 		List<LabelDTO> labelDto = new ArrayList<>();
 		//Cargamos los valores de la categoria de la etiqueta
@@ -53,14 +53,13 @@ public class LabelCategoryImpl implements ILabelCategoryService{
 			));
 		}
 		//Cargamos los valores de la etiqueta
-		labelDto.add(new LabelDTO(
+		LOG.info("*FINISHED - findByIdLabelCategory*");
+		return labelDto.add(new LabelDTO(
 			labelCategorysSNG.get(0).getLabel().getIdLabel(),
 			labelCategorysSNG.get(0).getLabel().getDescription(),
 			labelCategorysSNG.get(0).getLabel().getActive(),
 			labelCategorysSNG.get(0).getLabel().getComment(),
 			labelCategorysDto
 		));
-		LOG.info("*FINISHED - findByIdLabelCategory*");
-		return labelDto;
 	}
-}
+}ññ
