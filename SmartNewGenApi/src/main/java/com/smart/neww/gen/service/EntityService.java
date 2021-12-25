@@ -1,7 +1,7 @@
 /**
  * SmartNewGen exclusive class, all rights reserved
  */
-package com.smart.neww.gen.impl;
+package com.smart.neww.gen.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,23 +11,23 @@ import org.slf4j.LoggerFactory;
 
 import com.smart.neww.gen.dto.EntityDTO;
 import com.smart.neww.gen.entity.EntitySNG;
+import com.smart.neww.gen.interfaces.IEntity;
 import com.smart.neww.gen.repository.IEntityRepository;
-import com.smart.neww.gen.service.IEntityService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
  * @author Kevin Candia
- * 07-09-2020
+ *         07-09-2020wa
  */
 @Service
-public class EntityImpl implements IEntityService {
+public class EntityService implements IEntity {
 
-    private static final Logger LOG = LoggerFactory.getLogger(EntityImpl.class.toString());
+    private static final Logger LOG = LoggerFactory.getLogger(IEntity.class.toString());
 
     @Autowired
-	private IEntityRepository iEntityCategory;
+    private IEntityRepository iEntityCategory;
 
     @Override
     public EntityDTO findByIdEntity(Long idEntity) {
@@ -39,25 +39,24 @@ public class EntityImpl implements IEntityService {
         return fillEntityDTO(iEntityCategory.findByEmail(email));
     }
 
-    private EntityDTO fillEntityDTO(EntitySNG entity){
+    private EntityDTO fillEntityDTO(EntitySNG entity) {
         LOG.info("*START - fillEntityDTO");
 
-        if(entity == null)
+        if (entity == null)
             return null;
 
         return new EntityDTO(
-            entity.getIdEntity(),
-            entity.getNameEntity(),
-            entity.getLastEntity(),
-            entity.getPoints(),
-            entity.getEmail(),
-            entity.getTelephone(),
-            entity.getBirdDate(),
-            entity.getDaterArrive(),
-            entity.getIdLabelcategory().getDescription(),
-            entity.getActive(),
-            entity.getComment()
-        );
+                entity.getIdEntity(),
+                entity.getNameEntity(),
+                entity.getLastEntity(),
+                entity.getPoints(),
+                entity.getEmail(),
+                entity.getTelephone(),
+                entity.getBirdDate(),
+                entity.getDaterArrive(),
+                entity.getIdLabelcategory().getDescription(),
+                entity.getActive(),
+                entity.getComment());
     }
 
 }

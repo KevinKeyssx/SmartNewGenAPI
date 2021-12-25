@@ -16,33 +16,34 @@ import com.smart.neww.gen.common.Constants;
 import com.smart.neww.gen.common.Util;
 import com.smart.neww.gen.dto.LabelDTO;
 import com.smart.neww.gen.exception.ExpectationFailedException;
-import com.smart.neww.gen.service.ILabelService;
+import com.smart.neww.gen.interfaces.ILabel;
 
 /**
  * @author Kevin Candia
- * 23-09-2020
+ *         23-09-2020
  */
 @RestController
 @RequestMapping(Constants.END_LABEL)
 public class LabelController {
 
 	@Autowired
-	private ILabelService iLabel;
+	private ILabel iLabel;
 
 	@GetMapping(path = Constants.SEARCH, produces = "application/json")
 	public ResponseEntity<LabelDTO> findByIdLabel(@RequestParam(value = "number", required = true) Long number) {
 		var labelDTO = iLabel.findByIdLabel(number);
 
-		if(labelDTO != null && labelDTO.getActive().equals(Boolean.FALSE))
-			throw new ExpectationFailedException("La etiqueta: ".concat(labelDTO.getDescription()).concat(" ya no está disponible."));
+		if (labelDTO != null && labelDTO.getActive().equals(Boolean.FALSE)) {
+			throw new ExpectationFailedException(
+					"La etiqueta: ".concat(labelDTO.getDescription()).concat(" ya no está disponible."));
+		}
 
 		return new ResponseEntity<>(labelDTO, new Util(true).typeStatus(labelDTO));
 	}
 
 	@GetMapping(path = Constants.SEARCH_ALL, produces = "application/json")
 	public ResponseEntity<List<LabelDTO>> findAll() {
-		List<LabelDTO> labelDTO = iLabel.findAll();
-
+		var labelDTO = iLabel.findAll();
 		return new ResponseEntity<>(labelDTO, new Util(true).typeStatus(labelDTO));
 	}
 

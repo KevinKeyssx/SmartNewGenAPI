@@ -11,11 +11,11 @@
 	<groupId>com.smart.new.gen</groupId>
 	<artifactId>SmartNewGen</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>demo</name>
+	<name>SmartNewGen</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
-		<java.version>16</java.version>
+		<java.version>17</java.version>
 		<spring-cloud.version>Hoxton.SR7</spring-cloud.version>
 	</properties>
 	<dependencies>
@@ -44,9 +44,9 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<dependency>
-		    <groupId>javax.validation</groupId>
-		    <artifactId>validation-api</artifactId>
-		    <version>2.0.1.Final</version>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>2.0.1.Final</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springdoc</groupId>

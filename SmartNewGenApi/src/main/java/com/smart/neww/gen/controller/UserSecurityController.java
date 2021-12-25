@@ -19,50 +19,50 @@ import javax.validation.Valid;
 import com.smart.neww.gen.common.Constants;
 import com.smart.neww.gen.common.Util;
 import com.smart.neww.gen.dto.EntityDTO;
-import com.smart.neww.gen.service.IEntityService;
+import com.smart.neww.gen.interfaces.IEntity;
 
 /**
  * @author Kevin Candia
- * 23-09-2020
+ *         23-09-2020
  * 
  */
 @RestController
 @RequestMapping(Constants.END_USER)
 public class UserSecurityController {
 
-	private static final Logger LOG = LoggerFactory.getLogger(UserSecurityController.class.getName());
-
+	private static final Logger log = LoggerFactory.getLogger(UserSecurityController.class.getName());
 	private Util util = new Util(true);
 
 	@Autowired
-    private IEntityService iEntity;
+	private IEntity iEntity;
 
 	@GetMapping(path = Constants.SEARCH, produces = "application/json")
 	public ResponseEntity<EntityDTO> findBy(@RequestParam(value = "entity", required = true) String entity) {
-		LOG.info("*START - Controller findBy*");
-		//Obtenemos la entidad por el tipo
-		EntityDTO entityDTO = util.isLong(entity) ?
-			iEntity.findByIdEntity(util.asLong(entity)) :
-			iEntity.findByEmail(entity);
-		//Validamos si la entidad sigue activa
+		log.info("*START - Controller findBy*");
+		// Obtenemos la entidad por el tipo
+		EntityDTO entityDTO = util.isLong(entity) ? iEntity.findByIdEntity(util.asLong(entity))
+				: iEntity.findByEmail(entity);
+		// Validamos si la entidad sigue activa
 		isActive(entityDTO);
-		LOG.info("*FINISHED - Controller findBy*");
+		log.info("*FINISHED - Controller findBy*");
 		return new ResponseEntity<>(entityDTO, util.typeStatus(entityDTO));
 	}
 
 	@PostMapping(path = Constants.SEARCH, produces = "application/json")
 	public ResponseEntity<EntityDTO> newEntity(@Valid @RequestBody(required = true) EntityDTO entityDTO) {
-		LOG.info("*START - Controller newEntity*");
-		//Obtenemos la entidad por el tipo
+		log.info("*START - Controller newEntity*");
+		// Obtenemos la entidad por el tipo
 
-		//Validamos si la entidad sigue activa
+		// Validamos si la entidad sigue activa
 		isActive(entityDTO);
-		LOG.info("*FINISHED - Controller findBy*");
+		log.info("*FINISHED - Controller findBy*");
 		return new ResponseEntity<>(entityDTO, util.typeStatus(entityDTO));
 	}
 
-	private void isActive(EntityDTO entityDTO){
-		if (entityDTO == null) return;
+	private void isActive(EntityDTO entityDTO) {
+		if (entityDTO == null) {
+			return;
+		}
 		util.isActive(entityDTO.getActive(), entityDTO.getNameEntity(), entityDTO.getLastEntity());
 	}
 

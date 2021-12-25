@@ -7,15 +7,13 @@ import java.io.Serializable;
 import java.util.List;
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 /**
  * @author Kevin Candia
- * 23-09-2020
+ *         23-09-2020
  */
 @Data
-@EqualsAndHashCode(callSuper = false)
-public class LabelDTO extends Label implements Serializable{
+public class LabelDTO extends Label implements Serializable {
 
 	/**
 	 * @param idLabel

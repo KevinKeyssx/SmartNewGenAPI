@@ -14,16 +14,31 @@ import javax.persistence.Table;
 
 import com.smart.neww.gen.common.ConstantsDB;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * @author Kevin Candia
- * 07-09-2020
+ *         07-09-2020
  */
 @Data
 @Entity
+@AllArgsConstructor
 @Table(name = ConstantsDB.TABLE_LABEL, schema = ConstantsDB.SCHEMA)
-public class LabelSNG implements Serializable{
+public class LabelSNG implements Serializable {
+
+	public LabelSNG(Long idLabel) {
+		this.idLabel = idLabel;
+	}
+
+	// public LabelSNG(Long idLabel, String description, Boolean active, String
+	// comment) {
+	// this.idLabel = idLabel;
+	// this.description = description;
+	// this.active = active;
+	// this.comment = comment;
+	// }
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

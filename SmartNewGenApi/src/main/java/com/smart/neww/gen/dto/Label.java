@@ -9,7 +9,7 @@ import lombok.Data;
 
 /**
  * @author Kevin Candia
- * 23-09-2020
+ *         23-09-2020
  */
 @Data
 @AllArgsConstructor
@@ -21,7 +21,7 @@ public class Label implements Serializable {
   protected String comment;
   private static final long serialVersionUID = 1L;
 
-  public constuctor Label(long idLabel) {
+  public Label(long idLabel) {
     this.idLabel = idLabel;
   }
 }
