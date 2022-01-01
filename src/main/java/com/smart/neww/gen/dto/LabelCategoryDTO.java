@@ -1,12 +1,11 @@
 package com.smart.neww.gen.dto;
 
-import java.io.Serializable;
-
 import lombok.Data;
-
+import lombok.EqualsAndHashCode;
 
 @Data
-public class LabelCategoryDTO extends Label implements Serializable{
+@EqualsAndHashCode(callSuper = false)
+public class LabelCategoryDTO extends Label {
 
 	/**
 	 * @param idLabel
@@ -20,8 +19,6 @@ public class LabelCategoryDTO extends Label implements Serializable{
 		this.setSkills(skills);
 	}
 
-
 	private String skills;
-	private static final long serialVersionUID = 1L;
 
 }

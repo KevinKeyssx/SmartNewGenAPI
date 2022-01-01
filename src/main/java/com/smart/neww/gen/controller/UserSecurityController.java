@@ -51,8 +51,6 @@ public class UserSecurityController {
 	@PostMapping(path = Constants.SEARCH, produces = "application/json")
 	public ResponseEntity<EntityDTO> newEntity(@Valid @RequestBody(required = true) EntityDTO entityDTO) {
 		log.info("*START - Controller newEntity*");
-		// Obtenemos la entidad por el tipo
-
 		// Validamos si la entidad sigue activa
 		isActive(entityDTO);
 		log.info("*FINISHED - Controller findBy*");

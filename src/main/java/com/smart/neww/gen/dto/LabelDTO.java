@@ -3,17 +3,17 @@
  */
 package com.smart.neww.gen.dto;
 
-import java.io.Serializable;
 import java.util.List;
 
 import lombok.Data;
-
+import lombok.EqualsAndHashCode;
 /**
  * @author Kevin Candia
  *         23-09-2020
  */
 @Data
-public class LabelDTO extends Label implements Serializable {
+@EqualsAndHashCode(callSuper = false)
+public class LabelDTO extends Label {
 
 	/**
 	 * @param idLabel
@@ -27,6 +27,5 @@ public class LabelDTO extends Label implements Serializable {
 	}
 
 	private List<LabelCategoryDTO> label;
-	private static final long serialVersionUID = 1L;
 
 }

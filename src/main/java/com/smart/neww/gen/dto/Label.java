@@ -6,7 +6,6 @@ package com.smart.neww.gen.dto;
 import java.io.Serializable;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-
 /**
  * @author Kevin Candia
  *         23-09-2020

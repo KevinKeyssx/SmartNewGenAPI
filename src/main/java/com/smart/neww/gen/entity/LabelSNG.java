@@ -16,8 +16,6 @@ import com.smart.neww.gen.common.ConstantsDB;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-
 /**
  * @author Kevin Candia
  *         07-09-2020

@@ -19,8 +19,9 @@ public class Util implements Serializable {
     private static final long serialVersionUID = 1L;
 
     public Util(Boolean value) {
-        if (Boolean.FALSE.equals(value))
+        if (Boolean.FALSE.equals(value)) {
             throw new IllegalAccessError("Ilegal access.");
+        }
     }
 
     public HttpStatus typeStatus(Object object){
@@ -29,8 +30,9 @@ public class Util implements Serializable {
     }
 
     public void isActive(Boolean active, String name, String lastName){
-		if(active == null || active.equals(Boolean.FALSE))
+		if(active == null || active.equals(Boolean.FALSE)) {
 			throw new ExpectationFailedException(activeMessage(name, lastName));
+        }
     }
 
     private String activeMessage(String name, String lastName){
