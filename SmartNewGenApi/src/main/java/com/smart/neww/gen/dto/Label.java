@@ -24,4 +24,5 @@ public class Label implements Serializable {
   public Label(long idLabel) {
     this.idLabel = idLabel;
   }
+
 }

@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.smart.neww.gen.dto.LabelCategotyDTO;
+import com.smart.neww.gen.dto.LabelCategoryDTO;
 import com.smart.neww.gen.dto.LabelDTO;
 import com.smart.neww.gen.entity.LabelCategorySNG;
 import com.smart.neww.gen.entity.LabelSNG;
@@ -40,27 +40,27 @@ public class LabelCategoryService implements ILabelCategory {
 		if (labelCategorysSNG == null || labelCategorysSNG.isEmpty()) {
 			return new ArrayList<>();
 		}
-		List<LabelCategotyDTO> labelCategorysDto = new ArrayList<>();
-		var labelDto = new ArrayList<>();
+		var labelCategorysDto = new ArrayList<LabelCategoryDTO>();
+		var labelDto = new ArrayList<LabelDTO>();
 		// Cargamos los valores de la categoria de la etiqueta
 		for (LabelCategorySNG labelCategoryssSNG : labelCategorysSNG) {
-			labelCategorysDto.add(new LabelCategotyDTO(
-					labelCategoryssSNG.getIdLabelCategory(),
-					labelCategoryssSNG.getDescription(),
-					labelCategoryssSNG.getActive(),
-					labelCategoryssSNG.getComment(),
-					labelCategoryssSNG.getSkills()));
+			labelCategorysDto.add(new LabelCategoryDTO(
+				labelCategoryssSNG.getIdLabelCategory(),
+				labelCategoryssSNG.getDescription(),
+				labelCategoryssSNG.getActive(),
+				labelCategoryssSNG.getComment(),
+				labelCategoryssSNG.getSkills())
+			);
 		}
 		// Cargamos los valores de la etiqueta
+		labelDto.add(new LabelDTO(
+			labelCategorysSNG.get(0).getLabel().getIdLabel(),
+			labelCategorysSNG.get(0).getLabel().getDescription(),
+			labelCategorysSNG.get(0).getLabel().getActive(),
+			labelCategorysSNG.get(0).getLabel().getComment(),
+			labelCategorysDto
+		));
 		LOG.info("*FINISHED - findByIdLabelCategory*");
-		// return labelDto.add(new LabelDTO(
-		// labelCategorysSNG.get(0).getLabel().getIdLabel(),
-		// labelCategorysSNG.get(0).getLabel().getDescription(),
-		// labelCategorysSNG.get(0).getLabel().getActive(),
-		// labelCategorysSNG.get(0).getLabel().getComment(),
-		// labelCategorysDto
-		// ));
-
-		return null;
+		return labelDto;
 	}
 }

@@ -21,12 +21,12 @@ public class LabelDTO extends Label implements Serializable {
 	 * @param active
 	 * @param comment
 	 */
-	public LabelDTO(Long idLabel, String description, Boolean active, String comment, List<LabelCategotyDTO> label) {
+	public LabelDTO(Long idLabel, String description, Boolean active, String comment, List<LabelCategoryDTO> label) {
 		super(idLabel, description, active, comment);
 		this.setLabel(label);
 	}
 
-	private List<LabelCategotyDTO> label;
+	private List<LabelCategoryDTO> label;
 	private static final long serialVersionUID = 1L;
 
 }

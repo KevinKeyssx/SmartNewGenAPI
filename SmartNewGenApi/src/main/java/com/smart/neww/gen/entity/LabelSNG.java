@@ -32,14 +32,6 @@ public class LabelSNG implements Serializable {
 		this.idLabel = idLabel;
 	}
 
-	// public LabelSNG(Long idLabel, String description, Boolean active, String
-	// comment) {
-	// this.idLabel = idLabel;
-	// this.description = description;
-	// this.active = active;
-	// this.comment = comment;
-	// }
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "idslabel", nullable = false)
