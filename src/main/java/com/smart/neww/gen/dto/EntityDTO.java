@@ -8,6 +8,7 @@ import java.util.Date;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * @author Kevin Candia
@@ -15,6 +16,7 @@ import lombok.Data;
  */
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class EntityDTO implements Serializable {
 
 	private Long idEntity;
@@ -23,15 +25,13 @@ public class EntityDTO implements Serializable {
 
 	private String lastEntity;
 
-	private Long points;
-
 	private String email;
 
-	private String telephone;
+	private String cellPhone;
 
 	private Date birdDate;
 
-	private Date daterArrive;
+	private Date dateArrive;
 
 	private String typeCategory;
 

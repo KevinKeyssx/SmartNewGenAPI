@@ -16,12 +16,12 @@ import org.springframework.stereotype.Service;
 
 /**
  * @author Kevin Candia
- *         07-09-2020wa
+ * @date   07-09-2020
  */
 @Service
 public class EntityService implements IEntity {
 
-    private static final Logger LOG = LoggerFactory.getLogger(IEntity.class.toString());
+    private static final Logger console = LoggerFactory.getLogger(EntityService.class.toString());
 
     @Autowired
     private IEntityRepository iEntityCategory;
@@ -37,7 +37,7 @@ public class EntityService implements IEntity {
     }
 
     private EntityDTO fillEntityDTO(EntitySNG entity) {
-        LOG.info("*START - fillEntityDTO");
+        console.info("*START - fillEntityDTO");
 
         if (entity == null) {
             return null;
@@ -47,11 +47,10 @@ public class EntityService implements IEntity {
             entity.getIdEntity(),
             entity.getNameEntity(),
             entity.getLastEntity(),
-            entity.getPoints(),
             entity.getEmail(),
-            entity.getTelephone(),
+            entity.getCellPhone(),
             entity.getBirdDate(),
-            entity.getDaterArrive(),
+            entity.getDateArrive(),
             entity.getIdLabelcategory().getDescription(),
             entity.getActive(),
             entity.getComment()

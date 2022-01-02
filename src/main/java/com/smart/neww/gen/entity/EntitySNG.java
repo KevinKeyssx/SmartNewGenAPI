@@ -28,6 +28,10 @@ import lombok.Data;
 @Table(name = ConstantsDB.TABLE_ENTITY, schema = ConstantsDB.SCHEMA)
 public class EntitySNG implements Serializable{
 
+	public EntitySNG(Long entity) {
+		this.idEntity = entity;
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "idsentity", nullable = false)
@@ -39,20 +43,17 @@ public class EntitySNG implements Serializable{
 	@Column(name = "slastentity", nullable = false)
 	private String lastEntity;
 
-	@Column(name = "sngpoints", nullable = false)
-	private Long points;
-
 	@Column(name = "sngemail", nullable = false, unique = true)
 	private String email;
 
-	@Column(name = "sngnumber", nullable = false)
-	private String telephone;
+	@Column(name = "sngcellphone", nullable = false, unique = true)
+	private String cellPhone;
 
 	@Column(name = "sngdatebir", nullable = true)
 	private Date birdDate;
 
 	@Column(name = "sdatearri", nullable = false)
-	private Date daterArrive;
+	private Date dateArrive;
 
 	@ManyToOne
 	@JoinColumn(name = "idlabcat", nullable = false)

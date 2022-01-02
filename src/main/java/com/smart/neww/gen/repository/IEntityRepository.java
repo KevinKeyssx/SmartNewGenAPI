@@ -16,8 +16,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface IEntityRepository extends JpaRepository<EntitySNG, Long> {
 
-    EntitySNG findByIdEntity(@Param("idEntity") Long idEntity);
+    public EntitySNG findByIdEntity(@Param("idEntity") Long idEntity);
 
-    EntitySNG findByEmail(@Param("email") String email);
+    public EntitySNG findByEmail(@Param("email") String email);
 
 }
