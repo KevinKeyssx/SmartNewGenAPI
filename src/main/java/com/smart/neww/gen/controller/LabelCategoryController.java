@@ -3,7 +3,6 @@
  */
 package com.smart.neww.gen.controller;
 
-import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -17,7 +16,6 @@ import org.springframework.http.ResponseEntity;
 import com.smart.neww.gen.common.Constants;
 import com.smart.neww.gen.common.Util;
 import com.smart.neww.gen.dto.LabelDTO;
-import com.smart.neww.gen.exception.ExpectationFailedException;
 import com.smart.neww.gen.interfaces.ILabelCategory;
 
 /**
@@ -37,11 +35,7 @@ public class LabelCategoryController {
 	public ResponseEntity<LabelDTO> findByIdLabel(@RequestParam(value = "number", required = true) Long number) {
 		LOG.info("*START - Controller findByIdLabel*");
 		var labelDTO = iLabelCategory.findByIdLabel(number);
-
-		if (labelDTO.getActive().equals(Boolean.FALSE)) {
-			throw new ExpectationFailedException("La etiqueta ya no esta disponible.");
-		}
-
+		new Util(true).isActive(labelDTO.getActive(), "Label", "ya no está disponible.");
 		LOG.info("*FINISHED - Controller findByIdLabel*");
 		return new ResponseEntity<>(labelDTO, new Util(true).typeStatus(labelDTO));
 	}
