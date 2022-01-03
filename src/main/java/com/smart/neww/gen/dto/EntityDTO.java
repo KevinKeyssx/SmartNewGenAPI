@@ -33,8 +33,6 @@ public class EntityDTO implements Serializable {
 
 	private Date dateArrive;
 
-	private String typeCategory;
-
 	private Boolean active;
 
     private String comment;

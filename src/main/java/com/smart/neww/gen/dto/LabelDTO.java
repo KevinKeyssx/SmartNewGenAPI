@@ -21,11 +21,11 @@ public class LabelDTO extends Label {
 	 * @param active
 	 * @param comment
 	 */
-	public LabelDTO(Long idLabel, String description, Boolean active, String comment, List<LabelCategoryDTO> label) {
+	public LabelDTO(Long idLabel, String description, Boolean active, String comment, List<LabelCategoryDTO> labels) {
 		super(idLabel, description, active, comment);
-		this.setLabel(label);
+		this.setLabels(labels);
 	}
 
-	private List<LabelCategoryDTO> label;
+	private List<LabelCategoryDTO> labels;
 
 }

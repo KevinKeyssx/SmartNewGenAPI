@@ -17,10 +17,10 @@ import com.smart.neww.gen.entity.LabelSNG;
  * 07-09-2020
  */
 @Repository
-public interface ILabelCategoryRepository extends JpaRepository<LabelCategorySNG, Long>{
+public interface ILabelCategoryRepository extends JpaRepository<LabelCategorySNG, Long> {
 
-	List<LabelCategorySNG> findByLabel(@Param("idsLabel") LabelSNG idsLabel);
+	public List<LabelCategorySNG> findByLabels(@Param("idsLabel") LabelSNG idsLabel);
 
-	List<LabelCategorySNG> findByIdLabelCategory(@Param("idsLabel") Long idsLabel);
+	// public List<LabelCategorySNG> findByIdLabelCategory(@Param("idsLabel") Long idsLabel);
 
 }

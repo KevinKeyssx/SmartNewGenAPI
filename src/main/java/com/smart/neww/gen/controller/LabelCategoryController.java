@@ -38,10 +38,11 @@ public class LabelCategoryController {
 		LOG.info("*START - Controller findByIdLabel*");
 		List<LabelDTO> labelDTO = iLabelCategory.findByIdLabel(number);
 
-		if (!labelDTO.isEmpty() && labelDTO.get(0).getActive().equals(Boolean.FALSE))
+		if (!labelDTO.isEmpty() && labelDTO.get(0).getActive().equals(Boolean.FALSE)) {
 			throw new ExpectationFailedException("La etiqueta: "
-					.concat(labelDTO.get(0).getDescription())
-					.concat(" ya no esta disponible."));
+				.concat(labelDTO.get(0).getDescription())
+				.concat(" ya no esta disponible."));
+		}
 
 		LOG.info("*FINISHED - Controller findByIdLabel*");
 		return new ResponseEntity<>(labelDTO, new Util(true).typeStatus(labelDTO));

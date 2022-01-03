@@ -51,7 +51,6 @@ public class EntityService implements IEntity {
             entity.getCellPhone(),
             entity.getBirdDate(),
             entity.getDateArrive(),
-            entity.getIdLabelcategory().getDescription(),
             entity.getActive(),
             entity.getComment()
         );

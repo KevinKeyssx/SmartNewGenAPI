@@ -35,7 +35,7 @@ public class LabelCategorySNG implements Serializable{
 
 	@ManyToOne
 	@JoinColumn(name = "idslabel")
-	private LabelSNG label;
+	private LabelSNG labels;
 
 	@Column(name = "slabcatdesc")
 	@Size(min = 1, max = 100, message = "Excedió el máximo de caractéres permitidos")

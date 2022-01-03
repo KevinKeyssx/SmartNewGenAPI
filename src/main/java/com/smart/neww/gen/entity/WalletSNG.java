@@ -17,22 +17,28 @@ import javax.persistence.Table;
 import com.smart.neww.gen.common.ConstantsDB;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * @author Kevin Candia
  * 07-09-2020
  */
 @Data
+@NoArgsConstructor
 @Entity
 @Table(name = ConstantsDB.TABLE_WALLET, schema = ConstantsDB.SCHEMA)
 public class WalletSNG implements Serializable{
+
+    public WalletSNG(Long idWallet) {
+        this.idWallet = idWallet;
+    }
 
     @Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "idswallet", nullable = false)
     private Long idWallet;
 
-    @OneToOne
+    @OneToOne //1 entity puede tener 1 wallet
 	@JoinColumn(name = "idsentity", nullable = false)
     private EntitySNG entity;
 

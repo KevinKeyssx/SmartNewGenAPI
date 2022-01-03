@@ -29,13 +29,13 @@ public class LabelCategoryService implements ILabelCategory {
 	@Autowired
 	private ILabelCategoryRepository iLabelCategory;
 
-	private static final Logger LOG = LoggerFactory.getLogger(ILabelCategoryRepository.class.toString());
+	private static final Logger console = LoggerFactory.getLogger(ILabelCategoryRepository.class.toString());
 
 	public List<LabelDTO> findByIdLabel(Long idLabel) {
-		LOG.info("*START - findByIdLabelCategory*");
+		console.info("*START - findByIdLabelCategory*");
 		LabelSNG label = new LabelSNG(idLabel);
 		// Obtenemos todos los datos de las etiquetas
-		List<LabelCategorySNG> labelCategorysSNG = iLabelCategory.findByLabel(label);
+		List<LabelCategorySNG> labelCategorysSNG = iLabelCategory.findByLabels(label);
 		// Si no encuentra coincidencias
 		if (labelCategorysSNG == null || labelCategorysSNG.isEmpty()) {
 			return new ArrayList<>();
@@ -54,13 +54,13 @@ public class LabelCategoryService implements ILabelCategory {
 		}
 		// Cargamos los valores de la etiqueta
 		labelDto.add(new LabelDTO(
-			labelCategorysSNG.get(0).getLabel().getIdLabel(),
-			labelCategorysSNG.get(0).getLabel().getDescription(),
-			labelCategorysSNG.get(0).getLabel().getActive(),
-			labelCategorysSNG.get(0).getLabel().getComment(),
+			labelCategorysSNG.get(0).getLabels().getIdLabel(),
+			labelCategorysSNG.get(0).getLabels().getDescription(),
+			labelCategorysSNG.get(0).getLabels().getActive(),
+			labelCategorysSNG.get(0).getLabels().getComment(),
 			labelCategorysDto
 		));
-		LOG.info("*FINISHED - findByIdLabelCategory*");
+		console.info("*FINISHED - findByIdLabelCategory*");
 		return labelDto;
 	}
 }

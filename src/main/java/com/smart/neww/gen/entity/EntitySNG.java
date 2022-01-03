@@ -11,13 +11,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.smart.neww.gen.common.ConstantsDB;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * @author Kevin Candia
@@ -26,7 +25,8 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = ConstantsDB.TABLE_ENTITY, schema = ConstantsDB.SCHEMA)
-public class EntitySNG implements Serializable{
+@NoArgsConstructor
+public class EntitySNG implements Serializable {
 
 	public EntitySNG(Long entity) {
 		this.idEntity = entity;
@@ -54,10 +54,6 @@ public class EntitySNG implements Serializable{
 
 	@Column(name = "sdatearri", nullable = false)
 	private Date dateArrive;
-
-	@ManyToOne
-	@JoinColumn(name = "idlabcat", nullable = false)
-	private LabelCategorySNG idLabelcategory;
 
 	@Column(name = "sngactive", nullable = false)
 	private Boolean active;
