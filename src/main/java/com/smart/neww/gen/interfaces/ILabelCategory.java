@@ -3,8 +3,6 @@
  */
 package com.smart.neww.gen.interfaces;
 
-import java.util.List;
-
 import com.smart.neww.gen.dto.LabelDTO;
 
 /**
@@ -13,6 +11,6 @@ import com.smart.neww.gen.dto.LabelDTO;
  */
 public interface ILabelCategory {
 
-	public List<LabelDTO> findByIdLabel(Long idLabel);
+	public LabelDTO findByIdLabel(Long idLabel);
 
 }

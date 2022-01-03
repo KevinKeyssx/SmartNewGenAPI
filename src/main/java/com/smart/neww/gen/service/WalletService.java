@@ -8,7 +8,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.smart.neww.gen.dto.EntityDTO;
 import com.smart.neww.gen.dto.WalletDTO;
 import com.smart.neww.gen.entity.EntitySNG;
 import com.smart.neww.gen.entity.WalletSNG;

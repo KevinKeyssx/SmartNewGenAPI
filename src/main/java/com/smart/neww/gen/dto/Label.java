@@ -6,12 +6,14 @@ package com.smart.neww.gen.dto;
 import java.io.Serializable;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 /**
  * @author Kevin Candia
  *         23-09-2020
  */
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class Label implements Serializable {
 
   protected Long idLabel;

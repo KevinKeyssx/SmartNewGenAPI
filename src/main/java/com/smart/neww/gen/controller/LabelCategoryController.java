@@ -34,14 +34,12 @@ public class LabelCategoryController {
 	private ILabelCategory iLabelCategory;
 
 	@GetMapping(path = Constants.SEARCH, produces = "application/json")
-	public ResponseEntity<List<LabelDTO>> findByIdLabel(@RequestParam(value = "number", required = true) Long number) {
+	public ResponseEntity<LabelDTO> findByIdLabel(@RequestParam(value = "number", required = true) Long number) {
 		LOG.info("*START - Controller findByIdLabel*");
-		List<LabelDTO> labelDTO = iLabelCategory.findByIdLabel(number);
+		var labelDTO = iLabelCategory.findByIdLabel(number);
 
-		if (!labelDTO.isEmpty() && labelDTO.get(0).getActive().equals(Boolean.FALSE)) {
-			throw new ExpectationFailedException("La etiqueta: "
-				.concat(labelDTO.get(0).getDescription())
-				.concat(" ya no esta disponible."));
+		if (labelDTO.getActive().equals(Boolean.FALSE)) {
+			throw new ExpectationFailedException("La etiqueta ya no esta disponible.");
 		}
 
 		LOG.info("*FINISHED - Controller findByIdLabel*");

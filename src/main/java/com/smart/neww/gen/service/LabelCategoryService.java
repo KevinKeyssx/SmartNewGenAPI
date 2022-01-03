@@ -4,7 +4,6 @@
 package com.smart.neww.gen.service;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,7 +13,6 @@ import org.springframework.stereotype.Service;
 
 import com.smart.neww.gen.dto.LabelCategoryDTO;
 import com.smart.neww.gen.dto.LabelDTO;
-import com.smart.neww.gen.entity.LabelCategorySNG;
 import com.smart.neww.gen.entity.LabelSNG;
 import com.smart.neww.gen.interfaces.ILabelCategory;
 import com.smart.neww.gen.repository.ILabelCategoryRepository;
@@ -31,19 +29,17 @@ public class LabelCategoryService implements ILabelCategory {
 
 	private static final Logger console = LoggerFactory.getLogger(ILabelCategoryRepository.class.toString());
 
-	public List<LabelDTO> findByIdLabel(Long idLabel) {
+	public LabelDTO findByIdLabel(Long idLabel) {
 		console.info("*START - findByIdLabelCategory*");
-		LabelSNG label = new LabelSNG(idLabel);
 		// Obtenemos todos los datos de las etiquetas
-		List<LabelCategorySNG> labelCategorysSNG = iLabelCategory.findByLabels(label);
+		var labelCategorysSNG = iLabelCategory.findByLabels(new LabelSNG(idLabel));
 		// Si no encuentra coincidencias
 		if (labelCategorysSNG == null || labelCategorysSNG.isEmpty()) {
-			return new ArrayList<>();
+			return null;
 		}
 		var labelCategorysDto = new ArrayList<LabelCategoryDTO>();
-		var labelDto = new ArrayList<LabelDTO>();
 		// Cargamos los valores de la categoria de la etiqueta
-		for (LabelCategorySNG labelCategoryssSNG : labelCategorysSNG) {
+		for (var labelCategoryssSNG : labelCategorysSNG) {
 			labelCategorysDto.add(new LabelCategoryDTO(
 				labelCategoryssSNG.getIdLabelCategory(),
 				labelCategoryssSNG.getDescription(),
@@ -53,14 +49,13 @@ public class LabelCategoryService implements ILabelCategory {
 			);
 		}
 		// Cargamos los valores de la etiqueta
-		labelDto.add(new LabelDTO(
+		console.info("*FINISHED - findByIdLabelCategory*");
+		return new LabelDTO(
 			labelCategorysSNG.get(0).getLabels().getIdLabel(),
 			labelCategorysSNG.get(0).getLabels().getDescription(),
 			labelCategorysSNG.get(0).getLabels().getActive(),
 			labelCategorysSNG.get(0).getLabels().getComment(),
 			labelCategorysDto
-		));
-		console.info("*FINISHED - findByIdLabelCategory*");
-		return labelDto;
+		);
 	}
 }
