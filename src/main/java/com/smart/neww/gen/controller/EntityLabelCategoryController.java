@@ -34,5 +34,5 @@ public class EntityLabelCategoryController {
 		console.info("*FINISHED - Controller findByEntity*");
 		return new ResponseEntity<>(entityLabelCategoryDTO, new Util(true).typeStatus(entityLabelCategoryDTO));
 	}
-    
+
 }

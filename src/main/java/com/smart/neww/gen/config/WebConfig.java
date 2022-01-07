@@ -18,7 +18,7 @@ import io.swagger.v3.oas.annotations.info.License;
 @Configuration
 @OpenAPIDefinition(info = @Info(title = "SmartNewGen", license = @License(name = "Copyright © 2020 SmartNewGen SPA."), description = "La mejor tienda online"))
 public class WebConfig implements WebMvcConfigurer {
-	
+
 	@Override
 	public void addCorsMappings(CorsRegistry registry) {
 		registry.addMapping("/**").allowedMethods("PUT", "POST", "GET", "OPTION", "HEAD").maxAge(3600);

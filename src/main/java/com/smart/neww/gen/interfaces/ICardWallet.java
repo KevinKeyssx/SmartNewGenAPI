@@ -3,8 +3,6 @@
  */
 package com.smart.neww.gen.interfaces;
 
-import java.util.List;
-
 import com.smart.neww.gen.dto.WalletDTO;
 
 /**

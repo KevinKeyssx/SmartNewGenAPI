@@ -3,12 +3,8 @@ package com.smart.neww.gen.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Date;
-
 import com.smart.neww.gen.common.Constants;
 import com.smart.neww.gen.common.Util;
-import com.smart.neww.gen.dto.EntityDTO;
-import com.smart.neww.gen.dto.ResponseDTO;
 import com.smart.neww.gen.entity.EntitySNG;
 import com.smart.neww.gen.interfaces.IEntity;
 
@@ -35,7 +31,6 @@ public class EntityController {
     @GetMapping(path = Constants.SEARCH, produces = "application/json")
 	public ResponseEntity<Object> findIdEntity(@RequestParam(value = "entity", required = true) Long entity) {
 		console.info("*START - Controller findWallet*");
-        var entitySNG = new EntitySNG(entity);
 		var entityDTO = iEntity.findByIdEntity(entity);
 		console.info("*FINISHED - Controller findWallet*");
 		return new ResponseEntity<>(entityDTO, new Util(true).typeStatus(entityDTO));

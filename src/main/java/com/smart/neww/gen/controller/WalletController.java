@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(Constants.END_WALLET)
 public class WalletController {
-    
+
     private static final Logger console = LoggerFactory.getLogger(LabelCategoryController.class.getName());
 
     @Autowired

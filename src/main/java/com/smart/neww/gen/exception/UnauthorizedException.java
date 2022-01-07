@@ -8,7 +8,7 @@ package com.smart.neww.gen.exception;
  * 23-09-2020
  */
 public class UnauthorizedException extends RuntimeException {
-	
+
 	public UnauthorizedException(String message) {
 		super(message);
 	}

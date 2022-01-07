@@ -14,18 +14,20 @@ public class Constants {
 	public static final String VERSION = END_SNG + "/v1";
 
 	public static final String END_ENTITY = VERSION + "/entity";
-	
+
 	public static final String END_ENTITY_LABELCATEGORY = VERSION + "/entitylabelcategory";
-	
+
 	public static final String END_WALLET = VERSION + "/wallet";
-	
+
 	public static final String END_CARD_WALLET = VERSION + "/cardwallet";
 
 	public static final String END_LABEL = VERSION + "/label";
 
 	public static final String END_LABEL_CATEGORY = VERSION + "/labelcategory";
-	
+
 	public static final String SEARCH = "/search";
+
+	public static final String SEARCH_BY_ID = "/searchid";
 
 	public static final String SEARCH_ALL = "/searchall";
 

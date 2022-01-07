@@ -1,15 +1,12 @@
 package com.smart.neww.gen.service;
 
-import java.util.List;
 import java.util.ArrayList;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.smart.neww.gen.dto.CardWalletDTO;
-import com.smart.neww.gen.dto.EntityDTO;
 import com.smart.neww.gen.dto.WalletDTO;
-import com.smart.neww.gen.entity.CardWalletSNG;
 import com.smart.neww.gen.entity.WalletSNG;
 import com.smart.neww.gen.interfaces.ICardWallet;
 import com.smart.neww.gen.repository.ICardWalletRepository;

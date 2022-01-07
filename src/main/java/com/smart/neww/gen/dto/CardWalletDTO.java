@@ -18,8 +18,6 @@ public class CardWalletDTO implements Serializable {
 
     private Long idCard;
 
-    // private WalletDTO wallet;
-
     private String descriptionCard;
 
     private String numberCard;

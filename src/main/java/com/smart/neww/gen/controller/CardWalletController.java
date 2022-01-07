@@ -1,6 +1,5 @@
 package com.smart.neww.gen.controller;
 
-import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.smart.neww.gen.common.Constants;
 import com.smart.neww.gen.common.Util;
-import com.smart.neww.gen.dto.CardWalletDTO;
 import com.smart.neww.gen.dto.WalletDTO;
 import com.smart.neww.gen.interfaces.ICardWallet;
 
@@ -33,7 +31,6 @@ public class CardWalletController {
 	public ResponseEntity<WalletDTO> findByWallet(@RequestParam(value = "wallet", required = true) Long wallet) {
 		LOG.info("*START - Controller findByWallet*");
 		var walletDTO = iCardWallet.findByIdWallet(wallet);
-
 		LOG.info("*FINISHED - Controller findByWallet*");
 		return new ResponseEntity<>(walletDTO, new Util(true).typeStatus(walletDTO));
 	}

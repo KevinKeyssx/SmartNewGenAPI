@@ -42,7 +42,7 @@ public class EntityLabelCategoryService implements IEntityLabelCategory {
 
     @Override
     public EntityLabelCategoryDTO findByLabelCategory(Long idEntityLabelCategory) {
-       return null;
+        return null;
     }
 
     private EntityLabelCategoryDTO fillEntityCategory(EntityLabelCategorySNG entityLabelCategory) {

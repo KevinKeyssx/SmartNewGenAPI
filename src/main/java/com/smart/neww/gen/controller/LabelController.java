@@ -15,7 +15,6 @@ import java.util.List;
 import com.smart.neww.gen.common.Constants;
 import com.smart.neww.gen.common.Util;
 import com.smart.neww.gen.dto.LabelDTO;
-import com.smart.neww.gen.exception.ExpectationFailedException;
 import com.smart.neww.gen.interfaces.ILabel;
 
 /**
@@ -32,12 +31,7 @@ public class LabelController {
 	@GetMapping(path = Constants.SEARCH, produces = "application/json")
 	public ResponseEntity<LabelDTO> findByIdLabel(@RequestParam(value = "number", required = true) Long number) {
 		var labelDTO = iLabel.findByIdLabel(number);
-
-		if (labelDTO != null && labelDTO.getActive().equals(Boolean.FALSE)) {
-			throw new ExpectationFailedException(
-					"La etiqueta: ".concat(labelDTO.getDescription()).concat(" ya no está disponible."));
-		}
-
+		new Util(true).isActive(labelDTO.getActive(), "etiqueta", "ya no está disponible.");
 		return new ResponseEntity<>(labelDTO, new Util(true).typeStatus(labelDTO));
 	}
 
