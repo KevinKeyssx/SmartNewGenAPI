@@ -1,3 +1,6 @@
+/**
+ * SmartNewGen exclusive class, all rights reserved
+ */
 package com.smart.neww.gen.controller;
 
 import org.slf4j.Logger;
@@ -15,7 +18,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
+/**
+ * @author Kevin Candia
+ * @date 02-01-2022
+ */
 @RestController
 @RequestMapping(Constants.END_WALLET)
 public class WalletController {

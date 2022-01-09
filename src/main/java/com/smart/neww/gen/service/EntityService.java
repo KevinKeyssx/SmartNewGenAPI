@@ -43,6 +43,7 @@ public class EntityService implements IEntity {
             return null;
         }
 
+        console.info("*FINISHED - fillEntityDTO");
         return new EntityDTO(
             entity.getIdEntity(),
             entity.getNameEntity(),

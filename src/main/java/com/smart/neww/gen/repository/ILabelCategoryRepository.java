@@ -21,6 +21,6 @@ public interface ILabelCategoryRepository extends JpaRepository<LabelCategorySNG
 
 	public List<LabelCategorySNG> findByLabels(@Param("idsLabel") LabelSNG idsLabel);
 
-	// public List<LabelCategorySNG> findByIdLabelCategory(@Param("idsLabel") Long idsLabel);
+	public LabelCategorySNG findByIdLabelCategory(@Param("idsLabel") Long idsLabel);
 
 }

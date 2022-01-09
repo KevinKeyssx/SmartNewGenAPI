@@ -18,6 +18,4 @@ public interface ICardWalletRepository extends JpaRepository<CardWalletSNG, Long
 
     public List<CardWalletSNG> findByWallet(@Param("idsWallet") WalletSNG idsWallet);
 
-	// public List<CardWalletSNG> findByIdLabelCategory(@Param("idsLabel") Long idsLabel);
- 
 }

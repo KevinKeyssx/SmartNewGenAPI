@@ -31,10 +31,6 @@ public class LabelService implements ILabel {
 	public LabelDTO findByIdLabel(Long idLabel) {
 		log.info("*START - findByIdLabel*");
 		LabelSNG label = iLabel.findByIdLabel(idLabel);
-
-		if (label == null)
-			return null;
-
 		log.info("*FINISHED - findByIdLabel*");
 		return fillToLabelDTO(label);
 	}
@@ -45,20 +41,25 @@ public class LabelService implements ILabel {
 		List<LabelSNG> labels = iLabel.findAll();
 		List<LabelDTO> labelDTO = new ArrayList<>();
 
-		for (LabelSNG label : labels)
+		for (LabelSNG label : labels) {
 			labelDTO.add(fillToLabelDTO(label));
+		}
 
 		log.info("*FINISHED - findAll*");
 		return labelDTO;
 	}
 
 	private LabelDTO fillToLabelDTO(LabelSNG label) {
+		if (label == null) {
+			return null;
+		}
 		return new LabelDTO(
-				label.getIdLabel(),
-				label.getDescription(),
-				label.getActive(),
-				label.getComment(),
-				null);
+			label.getIdLabel(),
+			label.getDescription(),
+			label.getActive(),
+			label.getComment(),
+			null
+		);
 	}
 
 }

@@ -38,7 +38,7 @@ public class WalletSNG implements Serializable{
 	@Column(name = "idswallet", nullable = false)
     private Long idWallet;
 
-    @OneToOne //1 entity puede tener 1 wallet
+    @OneToOne
 	@JoinColumn(name = "idsentity", nullable = false)
     private EntitySNG entity;
 

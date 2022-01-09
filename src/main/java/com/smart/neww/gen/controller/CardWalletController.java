@@ -1,3 +1,6 @@
+/**
+ * SmartNewGen exclusive class, all rights reserved
+ */
 package com.smart.neww.gen.controller;
 
 import org.slf4j.Logger;
