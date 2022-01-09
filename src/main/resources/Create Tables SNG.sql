@@ -7,6 +7,10 @@ CREATE TABLE SNGLABEL(--ETIQUETA
 ALTER SEQUENCE snglabel_idslabel_seq RESTART WITH 1000 INCREMENT BY 10;
 select * from  smartnewgen.snglabel s ;
 
+insert into smartnewgentest.snglabel values (1, true,  'Categorias de las entidades', 'Categorias');
+insert into smartnewgentest.snglabel values (2, true, 'Niveles de las entidades', 'Niveles');
+
+
 CREATE TABLE SNGLABEL_CATEG(--CATEGORIA DE LA ETIQUETA 	
 	IDLABCAT		SERIAL PRIMARY KEY NOT NULL,														 		--ID CATEGORIA DE LA ETIQUETA
 	IDSLABEL		INT NOT NULL,				 																--ETIQUETA
@@ -19,6 +23,29 @@ CREATE TABLE SNGLABEL_CATEG(--CATEGORIA DE LA ETIQUETA
 ALTER SEQUENCE snglabel_categ_idlabcat_seq RESTART WITH 1000 INCREMENT BY 10;
 select * from  smartnewgen.snglabel_categ;
 
+insert into smartnewgentest.snglabel_categ values (1, true, 'Persona Natural', 'Empleado', '', 1); 
+insert into smartnewgentest.snglabel_categ values (2, true, 'Empresa', 'Empresa', '', 1);
+insert into smartnewgentest.snglabel_categ values (3, true, 'Persona Natural', 'Cliente', '', 1);
+insert into smartnewgentest.snglabel_categ values (4, true, 'Empresa', 'Proveedor', 'Empresa', 1);
+insert into smartnewgentest.snglabel_categ values (5, true, 'Nivel Mas bajo', 'Novato', '0-10', 2);
+insert into smartnewgentest.snglabel_categ values (6, true, 'Nivel intermedio', 'Comprador', '11-50', 2);
+insert into smartnewgentest.snglabel_categ values (7, true, 'Nivel intermedio Alto', 'Apasionado', '51-200', 2);
+insert into smartnewgentest.snglabel_categ values (8, true, 'Nivel Alto Profesional', 'Profesional', '201-500', 2);
+insert into smartnewgentest.snglabel_categ values (9, true, 'Nivel Semi Dios', 'Leyenda', '501-1000', 2);
+insert into smartnewgentest.snglabel_categ values (10, true, 'Nivel Dios', 'Dios de la Compra', 'Nivel Dios', 2);
+
+
+1	true	Persona Natural	Empleado		1
+2	true	Empresa	Empresa		1
+3	true	Persona Natural	Cliente		1
+4	true	Empresa	Proveedor		1
+5	true	Nivel Mas bajo	Novato	0-10	2
+6	true	Nivel intermedio	Comprador	11-50	2
+7	true	Nivel intermedio Alto	Apasionado	51-200	2
+8	true	Nivel Alto	Profesional	201-500	2
+9	true	Nivel Alto Dios	Leyenda	501-1000	2
+10	true	Nivel Dios	Dios de la Compra	1001	2
+
 CREATE TABLE SNGWALLET_ENTITY(/*BILLETERA DE LA ENTIDAD*/
 	IDSWALLET		SERIAL PRIMARY KEY NOT NULL,																--ID DE LA BILLETA DE LA ENTIDAD
 	IDSENTITY		INT NOT NULL,																				--ID DE LA ENTIDAD
@@ -29,6 +56,7 @@ CREATE TABLE SNGWALLET_ENTITY(/*BILLETERA DE LA ENTIDAD*/
 CREATE TABLE SNGCARD_WALLET(/*TABLA TARJETA EN LA BILLETERA*/
 	IDSCARD			SERIAL PRIMARY KEY NOT NULL,																--ID DE LA TARJETA DE LA ENTIDAD
 	IDSWALLET		INT NOT NULL,																				--ID DE LA BILLETERA
+--	STYPECARD		VARCHAR(100) NOT NULL,																		-- TIPO DE LA TARJETA VISA - MASTERCARD - AMEX
 	SDESCCARD		VARCHAR(100) NOT NULL,																		--NOMBRE DE LA TARJETA
 	SNUMBERCARD		VARCHAR(255) NOT NULL,																		--NUMERO DE LA TARJETA
 	SDUEDATE		VARCHAR(255) NOT NULL,																		--FECHA DE VENCIMIENTO DE LA TARJETA
@@ -36,22 +64,36 @@ CREATE TABLE SNGCARD_WALLET(/*TABLA TARJETA EN LA BILLETERA*/
 	CONSTRAINT ENTITY_WALLET FOREIGN KEY (IDSWALLET) REFERENCES SNGWALLET_ENTITY(IDSWALLET)						--FK DE LA BILLETERA
 );
 
+
 CREATE TABLE SNGENTITY(/*TABLA DE LA ENTIDAD USARIO | EMPLEADO | EMPRESA | PROVEEDOR | OTROS*/
 	IDSENTITY		SERIAL PRIMARY KEY NOT NULL,																--ID ENTIDAD
 	SDESCENTITY		VARCHAR(100) NOT NULL,																		--NOMBRES O RAZON SOCIAL DE LA ENTIDAD
 	SLASTENTITY		VARCHAR(100) NOT NULL,																		--APRELLIDOS O RUT/ID DEL DE LA ENTIDAD
-	SNGPOINTS		INT DEFAULT 0 NOT NULL,																		--CANTIDAD DE PUNTOS DE LA ENTIDAD
+--	SNGPOINTS		INT DEFAULT 0 NOT NULL,																		--CANTIDAD DE PUNTOS DE LA ENTIDAD
 	SNGEMAIL		VARCHAR(100) UNIQUE NOT NULL,																--CORREO DE LA ENTIDAD
-	SNGNUMBER		VARCHAR(20) NULL,																			--NUMERO TELEFONICO DE LA ENTIDAD
+	SNGCELPHONE		VARCHAR(20) NULL,																			--NUMERO TELEFONICO DE LA ENTIDAD
 	SNGDATEBIR		TIMESTAMP,																					--FECHA DE NACIMIENTO O DE CREACI�N DE LA ENTIDAD
 	SDATEARRI		TIMESTAMP DEFAULT current_timestamp NOT NULL,												--FECHA DE LLEGADA o FECHA DE CREACION DE LA ENTIDAD
-	IDLABCAT		INT NOT NULL,																				--DESCRIBE QUE TIPO DE ENTIDAD ES
+--	IDblLABCAT		INT NOT NULL,																				--DESCRIBE QUE TIPO DE ENTIDAD ES
 	SNGACTIVE		BOOLEAN DEFAULT TRUE NOT NULL,																--ENTIDAD ACTIVA
 	SNGCOMM			TEXT NULL,																					--COMENTARIOS PARA LA ENTIDAD
 	CONSTRAINT LABCAT_TYPE_ENTITY FOREIGN KEY (IDLABCAT) REFERENCES SNGLABEL_CATEG(IDLABCAT)					--FK TABLA CATEGORIA ETIQUETA TIPO ENTIDAD
 );
+
 ALTER SEQUENCE sngentity_idsentity_seq RESTART WITH 100000 INCREMENT BY 1;
 select * from SNGENTITY;
+
+insert into smartnewgentest.sngentity values (
+    1,
+    true,
+    '2022-01-01 00:00:00.000',
+    '2342342342',
+    '',
+    '2022-01-01 00:00:00.000',
+    'keyss1700@gmail.com',
+    'Candia',
+    'Kevin'
+);
 
 drop table SNGENTITY_LABELCAT;
 CREATE TABLE SNGENTITY_LABELCAT(/*ETIQUETAS DE LA ENTIDAD*/
@@ -65,7 +107,7 @@ select * from "SmartNewGen".SNGENTITY_LABELCAT;
 
 CREATE TABLE SNGCOUNTRY(/*TABLA DE PAISES*/
 	IDCCOUNTRY		SERIAL PRIMARY KEY NOT NULL,																--ID DEL PAIS
-	SNCODE			CHAR(3) UNIQUE NOT NULL,																	--CODIGO DEL PAIS
+	SNCODE			CHAR(5) UNIQUE NOT NULL,																	--CODIGO DEL PAIS
 	SNCOUNTRY		VARCHAR(50) UNIQUE NOT NULL,  																--NOMBRE DEL PAIS
 	SNCODNUM		VARCHAR(5)	null,																			--CODIGO DE PAIS PARA NUMERO DE CELULAR
 	SNMONEY 		CHAR(3) null,																				--Nombre de la moneda Digital
@@ -90,7 +132,6 @@ CREATE TABLE SNGADDRES(/*DIRECCION ACTIVA*/
 	IDSNGCITY		INT NOT NULL,																				--ID DE LA CUIDAD
 	SNADDRDES		VARCHAR(100) NOT NULL,																		--DIRECCION REAL
 	SNNUMADDR		INT NOT NULL,																				--NUMERO DE LA DIRECCION
-	SNDPHOADDR		INT NULL, 																					--NUMERO DEL DPTO O CASA
 	SNGDATEADD		timestamp DEFAULT current_timestamp NOT NULL,												--FECHA EN LA QUE SE INGRESO
 	SNGACTIVE		BOOLEAN DEFAULT TRUE NOT NULL,																--DIRECCION ACTIVA
 	SNGPPREFE		BOOLEAN DEFAULT FALSE NOT NULL,																--Direccion que cargara siempre por defecto si hay mas direcciones activas SOLO PUEDE HABER UNA 
@@ -341,4 +382,4 @@ insert into usslevel (ussdesc , usspoint , uscommen) VALUES('Profesional', 500, 
 insert into usslevel (ussdesc , usspoint , uscommen) VALUES('Leyenda', 1000, '');
 insert into usslevel (ussdesc , usspoint , uscommen) VALUES('Dios de la Compra', 9999999, '');
 
-SELECT current_timestamp;
+SELECT current_timestamp;**/
