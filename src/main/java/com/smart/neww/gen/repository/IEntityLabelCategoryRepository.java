@@ -1,8 +1,9 @@
 package com.smart.neww.gen.repository;
 
+import java.util.List;
+
 import com.smart.neww.gen.entity.EntityLabelCategorySNG;
 import com.smart.neww.gen.entity.EntitySNG;
-import com.smart.neww.gen.entity.LabelCategorySNG;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.query.Param;
@@ -17,8 +18,6 @@ public interface IEntityLabelCategoryRepository extends JpaRepository<EntityLabe
 
     public EntityLabelCategorySNG findByIdEntityLabelCategory(@Param("idEntityLabelCategory") Long idEntityLabelCategory);
 
-    public EntityLabelCategorySNG findByEntity(@Param("entity") EntitySNG idEntity);
-
-    public EntityLabelCategorySNG findByLabelCategory(@Param("idEntityLabelCategory") LabelCategorySNG idEntityLabelCategory);
+    public List<EntityLabelCategorySNG> findByEntity(@Param("idEntity") EntitySNG entity);
 
 }

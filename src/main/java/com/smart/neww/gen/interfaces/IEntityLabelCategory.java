@@ -11,6 +11,4 @@ public interface IEntityLabelCategory {
 
     public EntityLabelCategoryDTO findByEntity(Long idEntity);
 
-    public EntityLabelCategoryDTO findByLabelCategory(Long idEntityLabelCategory);
-
 }

@@ -31,9 +31,17 @@ public class EntityLabelCategoryController {
 	private IEntityLabelCategory iEntityLabelCategory;
 
 	@GetMapping(path = Constants.SEARCH, produces = "application/json")
-	public ResponseEntity<EntityLabelCategoryDTO> findByEntity(@RequestParam(value = "entity", required = true) Long entity) {
+	public ResponseEntity<EntityLabelCategoryDTO> findByIdEntityLabelCategory(@RequestParam(value = "entityLabel", required = true) Long entity) {
 		console.info("*START - Controller findByEntity*");
-		EntityLabelCategoryDTO entityLabelCategoryDTO = iEntityLabelCategory.findByEntity(entity);
+		var entityLabelCategoryDTO = iEntityLabelCategory.findByIdEntityLabelCategory(entity);
+		console.info("*FINISHED - Controller findByEntity*");
+		return new ResponseEntity<>(entityLabelCategoryDTO, new Util(true).typeStatus(entityLabelCategoryDTO));
+	}
+
+	@GetMapping(path = Constants.SEARCH_BY_ID, produces = "application/json")
+	public ResponseEntity<EntityLabelCategoryDTO> findByIdEntity(@RequestParam(value = "entity", required = true) Long entity) {
+		console.info("*START - Controller findByEntity*");
+		var entityLabelCategoryDTO = iEntityLabelCategory.findByEntity(entity);
 		console.info("*FINISHED - Controller findByEntity*");
 		return new ResponseEntity<>(entityLabelCategoryDTO, new Util(true).typeStatus(entityLabelCategoryDTO));
 	}

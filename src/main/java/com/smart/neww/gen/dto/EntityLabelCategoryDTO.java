@@ -17,5 +17,4 @@ public class EntityLabelCategoryDTO implements Serializable {
 	private List<LabelCategoryDTO> labelCategorys;
 
 	private static final long serialVersionUID = 1L;
-
 }
