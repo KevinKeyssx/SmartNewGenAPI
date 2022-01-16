@@ -7,14 +7,14 @@ CREATE TABLE SNGLABEL(--ETIQUETA
 ALTER SEQUENCE snglabel_idslabel_seq RESTART WITH 1000 INCREMENT BY 10;
 select * from snglabel s ;
 
-insert into smartnewgentest.snglabel values (1, true,  'Categorias de las entidades', 'Categorias');
-insert into smartnewgentest.snglabel values (2, true, 'Niveles de las entidades', 'Niveles');
+insert into smartnewgentest2.snglabel values (1, true,  'Categorias de las entidades', 'Categorias');
+insert into smartnewgentest2.snglabel values (2, true, 'Niveles de las entidades', 'Niveles');
 
 CREATE TABLE SNGLABEL_CATEG(--CATEGORIA DE LA ETIQUETA 	
 	IDLABCAT		SERIAL PRIMARY KEY NOT NULL,														 		--ID CATEGORIA DE LA ETIQUETA
 	IDSLABEL		INT NOT NULL,				 																--ETIQUETA
 	SLABCATDESC		VARCHAR(100) UNIQUE NOT NULL,															 	--DESCRIPCION NOMBRE
-	LABELSKILLS		JSONB NULL,																					--HABILIDAD EXTRA QUE PUEDE TENER	
+	SSKILLS			JSONB NULL,																					--HABILIDAD EXTRA QUE PUEDE TENER	
 	SLAACTIV		BOOLEAN DEFAULT TRUE NOT NULL,																--ETIQUETA ACTIVA
 	SLACACOMM		TEXT,																					 	--COMENTARIO
 	CONSTRAINT CAT_TAG FOREIGN KEY (IDSLABEL) REFERENCES SNGLABEL(IDSLABEL)
@@ -22,16 +22,18 @@ CREATE TABLE SNGLABEL_CATEG(--CATEGORIA DE LA ETIQUETA
 ALTER SEQUENCE snglabel_categ_idlabcat_seq RESTART WITH 1000 INCREMENT BY 10;
 select * from  smartnewgen.snglabel_categ;
 
-insert into smartnewgentest.snglabel_categ values (1, true, 'Persona Natural', 'Empleado', '', 1); 
-insert into smartnewgentest.snglabel_categ values (2, true, 'Empresa', 'Empresa', '', 1);
-insert into smartnewgentest.snglabel_categ values (3, true, 'Persona Natural', 'Cliente', '', 1);
-insert into smartnewgentest.snglabel_categ values (4, true, 'Empresa', 'Proveedor', 'Empresa', 1);
-insert into smartnewgentest.snglabel_categ values (5, true, 'Nivel Mas bajo', 'Novato', '0-10', 2);
-insert into smartnewgentest.snglabel_categ values (6, true, 'Nivel intermedio', 'Comprador', '11-50', 2);
-insert into smartnewgentest.snglabel_categ values (7, true, 'Nivel intermedio Alto', 'Apasionado', '51-200', 2);
-insert into smartnewgentest.snglabel_categ values (8, true, 'Nivel Alto Profesional', 'Profesional', '201-500', 2);
-insert into smartnewgentest.snglabel_categ values (9, true, 'Nivel Semi Dios', 'Leyenda', '501-1000', 2);
-insert into smartnewgentest.snglabel_categ values (10, true, 'Nivel Dios', 'Dios de la Compra', 'Nivel Dios', 2);
+insert into smartnewgentest2.snglabel_categ values (1, true, 'Persona Natural', 'Empleado', '{}', 1); 
+insert into smartnewgentest2.snglabel_categ values (2, true, 'Empresa', 'Empresa', '{}', 1);
+insert into smartnewgentest2.snglabel_categ values (3, true, 'Persona Natural', 'Cliente', '{}', 1);
+insert into smartnewgentest2.snglabel_categ values (4, true, 'Empresa', 'Proveedor', '{}', 1);
+insert into smartnewgentest2.snglabel_categ values (5, true, 'Nivel Mas bajo', 'Novato', '{"min": 0,"max":10}', 2);
+insert into smartnewgentest2.snglabel_categ values (6, true, 'Nivel intermedio', 'Comprador', '{"min": 11,"max":50}', 2);
+insert into smartnewgentest2.snglabel_categ values (7, true, 'Nivel intermedio Alto', 'Apasionado', '{"min": 51,"max":200}', 2);
+insert into smartnewgentest2.snglabel_categ values (8, true, 'Nivel Alto Profesional', 'Profesional', '{"min": 201,"max":500}', 2);
+insert into smartnewgentest2.snglabel_categ values (9, true, 'Nivel Semi Dios', 'Leyenda', '{"min": 501,"max":1000}', 2);
+insert into smartnewgentest2.snglabel_categ values (10, true, 'Nivel Dios', 'Dios de la Compra', '{"min": 1001,"max":1000000}', 2);
+
+SELECT labelskills -> 'min' AS maxLevel FROM snglabel_categ;
 
 CREATE TABLE SNGWALLET_ENTITY(/*BILLETERA DE LA ENTIDAD*/
 	IDSWALLET		SERIAL PRIMARY KEY NOT NULL,																--ID DE LA BILLETA DE LA ENTIDAD
@@ -69,7 +71,7 @@ CREATE TABLE SNGENTITY(/*TABLA DE LA ENTIDAD USARIO | EMPLEADO | EMPRESA | PROVE
 ALTER SEQUENCE sngentity_idsentity_seq RESTART WITH 100000 INCREMENT BY 1;
 select * from SNGENTITY;
 
-insert into smartnewgentest.sngentity values (
+insert into smartnewgentest2.sngentity values (
     1,
     true,
     '2022-01-01 00:00:00.000',

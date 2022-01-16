@@ -1,7 +1,7 @@
 /**
  * SmartNewGen exclusive class, all rights reserved
  */
-package com.smart.neww.gen.exception;
+package com.smart.neww.gen.error;
 
 /**
  * @author Kevin Candia

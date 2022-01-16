@@ -13,9 +13,13 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.Size;
 
 import com.smart.neww.gen.common.ConstantsDB;
+import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
+import com.vladmihalcea.hibernate.type.json.JsonStringType;
+
+import org.hibernate.annotations.Type;
+import org.hibernate.annotations.TypeDef;
 
 import lombok.Data;
 
@@ -26,6 +30,8 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = ConstantsDB.TABLE_LABELCATEGORY, schema = ConstantsDB.SCHEMA)
+@TypeDef(name = "json", typeClass = JsonStringType.class)
+@TypeDef(name = "jsonb", typeClass = JsonBinaryType.class)
 public class LabelCategorySNG implements Serializable{
 
 	@Id
@@ -34,20 +40,20 @@ public class LabelCategorySNG implements Serializable{
 	private Long idLabelCategory;
 
 	@ManyToOne
-	@JoinColumn(name = "idslabel")
+	@JoinColumn(name = "idslabel", nullable = true)
 	private LabelSNG labels;
 
-	@Column(name = "slabcatdesc")
-	@Size(min = 1, max = 100, message = "Excedió el máximo de caractéres permitidos")
+	@Column(name = "slabcatdesc", length = 100, nullable = true)
 	private String description;
 
-	@Column(name = "labelskills")
+	@Type(type = "jsonb")
+	@Column(name = "labelskills", columnDefinition = "jsonb", nullable = false)
 	private String skills;
 
-	@Column(name = "slaactiv")
+	@Column(name = "slaactiv", nullable = true)
 	private Boolean active;
 
-	@Column(name = "slacacomm")
+	@Column(name = "slacacomm", length = 200, nullable = true)
 	private String comment;
 
 	private static final long serialVersionUID = 1L;

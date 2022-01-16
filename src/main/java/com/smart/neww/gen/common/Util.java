@@ -5,7 +5,7 @@ package com.smart.neww.gen.common;
 
 import java.io.Serializable;
 
-import com.smart.neww.gen.exception.ExpectationFailedException;
+import com.smart.neww.gen.error.ExpectationFailedException;
 
 import org.springframework.http.HttpStatus;
 

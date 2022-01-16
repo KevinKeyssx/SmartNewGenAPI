@@ -1,7 +1,7 @@
 /**
  * SmartNewGen exclusive class, all rights reserved
  */
-package com.smart.neww.gen.exception;
+package com.smart.neww.gen.error;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;

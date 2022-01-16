@@ -12,6 +12,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import com.smart.neww.gen.common.ConstantsDB;
 
@@ -49,9 +51,11 @@ public class EntitySNG implements Serializable {
 	@Column(name = "sngcellphone", nullable = false, unique = true)
 	private String cellPhone;
 
+	@Temporal(TemporalType.DATE)
 	@Column(name = "sngdatebir", nullable = true)
 	private Date birdDate;
 
+	@Temporal(TemporalType.DATE)
 	@Column(name = "sdatearri", nullable = false)
 	private Date dateArrive;
 
