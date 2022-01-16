@@ -14,6 +14,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -45,6 +47,7 @@ public class CardWalletSNG implements Serializable {
     @Column(name = "snumbercard", nullable = false, length = 255)
     private String numberCard;
 
+    @Temporal(TemporalType.DATE)
     @Column(name = "sduedate", nullable = false)
     private Date dueDate;
 
