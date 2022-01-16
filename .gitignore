@@ -1,0 +1,42 @@
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+.dbeaver/.credentials-config.json.bak
+.dbeaver/.data-sources.json.bak
+.dbeaver/.project-metadata.json.bak
+.dbeaver/.tasks.json.bak
+.dbeaver/credentials-config.json
+.dbeaver/data-sources.json
+.dbeaver/project-metadata.json
+.dbeaver/tasks.json
+Scripts/Script-1.sql
