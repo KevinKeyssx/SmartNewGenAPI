@@ -16,11 +16,10 @@ import lombok.Data;
 @AllArgsConstructor
 public class EntityLabelCategoryDTO implements Serializable {
 
-    private Long idEntityLabelCategory;
-
 	private EntityDTO entity;
 
 	private List<LabelCategoryDTO> labelCategorys;
 
 	private static final long serialVersionUID = 1L;
+
 }

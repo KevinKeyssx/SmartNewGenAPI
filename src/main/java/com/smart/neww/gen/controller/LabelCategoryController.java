@@ -43,10 +43,10 @@ public class LabelCategoryController {
 
 	@GetMapping(path = Constants.SEARCH_BY_ID, produces = "application/json")
 	public ResponseEntity<LabelCategoryDTO> findByIdLabelCategory(@RequestParam(value = "number", required = true) Long number) {
-		LOG.info("*START - Controller findByIdLabel*");
+		LOG.info("*START - Controller findByIdLabelCategory*");
 		var labelDTO = iLabelCategory.findByIdLabelCategory(number);
 		new Util(true).isActive(labelDTO.getActive(), "Label", "ya no está disponible.");
-		LOG.info("*FINISHED - Controller findByIdLabel*");
+		LOG.info("*FINISHED - Controller findByIdLabelCategory*");
 		return new ResponseEntity<>(labelDTO, new Util(true).typeStatus(labelDTO));
 	}
 

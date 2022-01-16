@@ -33,17 +33,17 @@ public class EntityController {
 
     @GetMapping(path = Constants.SEARCH_BY_ID, produces = "application/json")
 	public ResponseEntity<EntityDTO> findIdEntity(@RequestParam(value = "entity", required = true) Long entity) {
-		console.info("*START - Controller findWallet*");
+		console.info("*START - Controller findIdEntity*");
 		var entityDTO = iEntity.findByIdEntity(entity);
-		console.info("*FINISHED - Controller findWallet*");
+		console.info("*FINISHED - Controller findIdEntity*");
 		return new ResponseEntity<>(entityDTO, new Util(true).typeStatus(entityDTO));
 	}
 
     @GetMapping(path = Constants.SEARCH, produces = "application/json")
 	public ResponseEntity<EntityDTO> findEmailEntity(@RequestParam(value = "email", required = true) String email) {
-		console.info("*START - Controller findWallet*");
+		console.info("*START - Controller findEmailEntity*");
 		var entityDTO = iEntity.findByEmail(email);
-		console.info("*FINISHED - Controller findWallet*");
+		console.info("*FINISHED - Controller findEmailEntity*");
 		return new ResponseEntity<>(entityDTO, new Util(true).typeStatus(entityDTO));
 	}
 

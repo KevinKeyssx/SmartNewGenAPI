@@ -65,7 +65,6 @@ public class EntityLabelCategoryService implements IEntityLabelCategory {
         }
         console.info("FINISHED - fillEntityLabelCategorys");
         return new EntityLabelCategoryDTO(
-            entityLabelCategorys.get(0).getIdEntityLabelCategory(),
             new EntityDTO(
                 entityLabelCategorys.get(0).getEntity().getIdEntity(),
                 entityLabelCategorys.get(0).getEntity().getNameEntity(),

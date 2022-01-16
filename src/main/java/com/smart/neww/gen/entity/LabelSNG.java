@@ -37,13 +37,13 @@ public class LabelSNG implements Serializable {
 	@Column(name = "idslabel", nullable = false)
 	private Long idLabel;
 
-	@Column(name = "slabdesc", nullable = false)
+	@Column(name = "slabdesc", length = 100, nullable = false)
 	private String description;
 
 	@Column(name = "slabactiv", nullable = false)
 	private Boolean active;
 
-	@Column(name = "slabcomm", nullable = false)
+	@Column(name = "slabcomm", length = 200, nullable = false)
 	private String comment;
 
 	private static final long serialVersionUID = 1L;
