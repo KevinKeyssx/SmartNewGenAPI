@@ -12,7 +12,7 @@
 	<artifactId>SmartNewGen</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>SmartNewGen</name>
-	<description>Demo project for Spring Boot</description>
+	<description>La mejor tienda online</description>
 
 	<properties>
 		<java.version>17</java.version>

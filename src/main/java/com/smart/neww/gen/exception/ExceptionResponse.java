@@ -18,8 +18,11 @@ import lombok.Data;
 public class ExceptionResponse implements Serializable{
 
 	private LocalDateTime timestamp;
+
 	private String message;
+
 	private String details;
+
 	private static final long serialVersionUID = 1L;
 
 }
