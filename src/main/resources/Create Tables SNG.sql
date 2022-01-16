@@ -5,11 +5,10 @@ CREATE TABLE SNGLABEL(--ETIQUETA
 	SLABCOMM		TEXT																					 	--COMENTARIO
 );
 ALTER SEQUENCE snglabel_idslabel_seq RESTART WITH 1000 INCREMENT BY 10;
-select * from  smartnewgen.snglabel s ;
+select * from snglabel s ;
 
 insert into smartnewgentest.snglabel values (1, true,  'Categorias de las entidades', 'Categorias');
 insert into smartnewgentest.snglabel values (2, true, 'Niveles de las entidades', 'Niveles');
-
 
 CREATE TABLE SNGLABEL_CATEG(--CATEGORIA DE LA ETIQUETA 	
 	IDLABCAT		SERIAL PRIMARY KEY NOT NULL,														 		--ID CATEGORIA DE LA ETIQUETA
@@ -34,18 +33,6 @@ insert into smartnewgentest.snglabel_categ values (8, true, 'Nivel Alto Profesio
 insert into smartnewgentest.snglabel_categ values (9, true, 'Nivel Semi Dios', 'Leyenda', '501-1000', 2);
 insert into smartnewgentest.snglabel_categ values (10, true, 'Nivel Dios', 'Dios de la Compra', 'Nivel Dios', 2);
 
-
-1	true	Persona Natural	Empleado		1
-2	true	Empresa	Empresa		1
-3	true	Persona Natural	Cliente		1
-4	true	Empresa	Proveedor		1
-5	true	Nivel Mas bajo	Novato	0-10	2
-6	true	Nivel intermedio	Comprador	11-50	2
-7	true	Nivel intermedio Alto	Apasionado	51-200	2
-8	true	Nivel Alto	Profesional	201-500	2
-9	true	Nivel Alto Dios	Leyenda	501-1000	2
-10	true	Nivel Dios	Dios de la Compra	1001	2
-
 CREATE TABLE SNGWALLET_ENTITY(/*BILLETERA DE LA ENTIDAD*/
 	IDSWALLET		SERIAL PRIMARY KEY NOT NULL,																--ID DE LA BILLETA DE LA ENTIDAD
 	IDSENTITY		INT NOT NULL,																				--ID DE LA ENTIDAD
@@ -63,7 +50,6 @@ CREATE TABLE SNGCARD_WALLET(/*TABLA TARJETA EN LA BILLETERA*/
 	SCODECARD		VARCHAR(255) NOT NULL,																		--CODIGO DE VERIFICACION DE LA TARJETA
 	CONSTRAINT ENTITY_WALLET FOREIGN KEY (IDSWALLET) REFERENCES SNGWALLET_ENTITY(IDSWALLET)						--FK DE LA BILLETERA
 );
-
 
 CREATE TABLE SNGENTITY(/*TABLA DE LA ENTIDAD USARIO | EMPLEADO | EMPRESA | PROVEEDOR | OTROS*/
 	IDSENTITY		SERIAL PRIMARY KEY NOT NULL,																--ID ENTIDAD
@@ -103,7 +89,7 @@ CREATE TABLE SNGENTITY_LABELCAT(/*ETIQUETAS DE LA ENTIDAD*/
 	CONSTRAINT ENTITY_LABEL FOREIGN KEY (IDSENTITY) REFERENCES SNGENTITY(IDSENTITY),							--FK TABLA ENTIDAD
 	CONSTRAINT LAB_CAT_ENTITY   FOREIGN KEY (IDLABCAT) REFERENCES SNGLABEL_CATEG(IDLABCAT)						--FK TABLA CATEGORIA DE LA ETIQUETA
 );
-select * from "SmartNewGen".SNGENTITY_LABELCAT;
+select * from SNGENTITY_LABELCAT;
 
 CREATE TABLE SNGCOUNTRY(/*TABLA DE PAISES*/
 	IDCCOUNTRY		SERIAL PRIMARY KEY NOT NULL,																--ID DEL PAIS

@@ -16,7 +16,7 @@ import io.swagger.v3.oas.annotations.info.License;
  * 30-10-2020
  */
 @Configuration
-@OpenAPIDefinition(info = @Info(title = "SmartNewGen", license = @License(name = "Copyright © 2020 SmartNewGen SPA."), description = "La mejor tienda online"))
+@OpenAPIDefinition(info = @Info(title = "SmartNewGen", license = @License(name = "Copyright © 2022 SmartNewGen SPA."), description = "La mejor tienda online"))
 public class WebConfig implements WebMvcConfigurer {
 
 	@Override
