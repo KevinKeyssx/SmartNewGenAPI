@@ -1,8 +1,5 @@
 package com.smart.neww.gen.service;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,38 +13,39 @@ import com.smart.neww.gen.repository.IEntityLabelCategoryRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import lombok.extern.log4j.Log4j2;
 /**
  * @author Kevin Candia
  * @date 02-01-2022
  */
+@Log4j2
 @Service
 public class EntityLabelCategoryService implements IEntityLabelCategory {
 
     @Autowired
 	private IEntityLabelCategoryRepository iEntityLabelCategory;
 
-	private static final Logger console = LoggerFactory.getLogger(EntityLabelCategoryService.class.toString());
-
     @Override
     public EntityLabelCategoryDTO findByIdEntityLabelCategory(Long idEntityLabelCategory) {
-        console.info("START - findByIdEntityLabelCategory");
+        log.info("START - findByIdEntityLabelCategory");
         var entityLabelCategory = iEntityLabelCategory.findByIdEntityLabelCategory(idEntityLabelCategory);
         var listEntity = new ArrayList<EntityLabelCategorySNG>();
         listEntity.add(entityLabelCategory);
-        console.info("FINISHED - findByIdEntityLabelCategory");
+        log.info("FINISHED - findByIdEntityLabelCategory");
         return fillEntityLabelCategorys(listEntity);
     }
 
     @Override
     public EntityLabelCategoryDTO findByEntity(Long idEntity) {
-        console.info("START - findByEntity");
+        log.info("START - findByEntity");
         var listEntity = iEntityLabelCategory.findByEntity(new EntitySNG(idEntity));
-        console.info("FINISHED - findByEntity");
+        log.info("FINISHED - findByEntity");
         return fillEntityLabelCategorys(listEntity);
     }
 
     private EntityLabelCategoryDTO fillEntityLabelCategorys(List<EntityLabelCategorySNG> entityLabelCategorys) {
-        console.info("START - fillEntityLabelCategorys");
+        log.info("START - fillEntityLabelCategorys");
         if (entityLabelCategorys == null || entityLabelCategorys.size() == 0) {
             return null;
         }
@@ -63,7 +61,7 @@ public class EntityLabelCategoryService implements IEntityLabelCategory {
                 entityLabelCategory.getLabelCategory().getSkills())
             );
         }
-        console.info("FINISHED - fillEntityLabelCategorys");
+        log.info("FINISHED - fillEntityLabelCategorys");
         return new EntityLabelCategoryDTO(
             new EntityDTO(
                 entityLabelCategorys.get(0).getEntity().getIdEntity(),

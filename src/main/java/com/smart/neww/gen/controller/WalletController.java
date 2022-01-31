@@ -3,9 +3,6 @@
  */
 package com.smart.neww.gen.controller;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import com.smart.neww.gen.common.Constants;
 import com.smart.neww.gen.common.Util;
 import com.smart.neww.gen.dto.WalletDTO;
@@ -18,25 +15,26 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import lombok.extern.log4j.Log4j2;
 /**
  * @author Kevin Candia
  * @date 02-01-2022
  */
+@Log4j2
 @RestController
 @RequestMapping(Constants.END_WALLET)
 public class WalletController {
-
-    private static final Logger console = LoggerFactory.getLogger(LabelCategoryController.class.getName());
 
     @Autowired
 	private IWallet iWallet;
 
     @GetMapping(path = Constants.SEARCH, produces = "application/json")
 	public ResponseEntity<WalletDTO> findWallet(@RequestParam(value = "entity", required = true) Long entity) {
-		console.info("*START - Controller findWallet*");
+		log.info("*START - Controller findWallet*");
         var entitySNG = new EntitySNG(entity);
 		var walletDTO = iWallet.findByEntity(entitySNG);
-		console.info("*FINISHED - Controller findWallet*");
+		log.info("*FINISHED - Controller findWallet*");
 		return new ResponseEntity<>(walletDTO, new Util(true).typeStatus(walletDTO));
 	}
 

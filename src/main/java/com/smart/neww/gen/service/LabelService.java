@@ -3,11 +3,10 @@
  */
 package com.smart.neww.gen.service;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import lombok.extern.log4j.Log4j2;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,10 +19,9 @@ import com.smart.neww.gen.repository.ILabelRepository;
 /**
  * @author Kevin Candia 22-09-2020
  */
+@Log4j2
 @Service
 public class LabelService implements ILabel {
-
-	private static final Logger log = LoggerFactory.getLogger(LabelService.class.getName());
 
 	@Autowired
 	private ILabelRepository iLabel;

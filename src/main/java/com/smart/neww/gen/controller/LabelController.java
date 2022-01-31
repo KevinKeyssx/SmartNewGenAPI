@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import lombok.extern.log4j.Log4j2;
+
 import java.util.List;
 
 import com.smart.neww.gen.common.Constants;
@@ -21,6 +23,7 @@ import com.smart.neww.gen.interfaces.ILabel;
  * @author Kevin Candia
  *         23-09-2020
  */
+@Log4j2
 @RestController
 @RequestMapping(Constants.END_LABEL)
 public class LabelController {
@@ -30,14 +33,18 @@ public class LabelController {
 
 	@GetMapping(path = Constants.SEARCH, produces = "application/json")
 	public ResponseEntity<LabelDTO> findByIdLabel(@RequestParam(value = "number", required = true) Long number) {
+		log.info("*START - Controller findByIdLabel*");
 		var labelDTO = iLabel.findByIdLabel(number);
 		new Util(true).isActive(labelDTO.getActive(), "etiqueta", "ya no está disponible.");
+		log.info("*FINISHED - Controller findByIdLabel*");
 		return new ResponseEntity<>(labelDTO, new Util(true).typeStatus(labelDTO));
 	}
-
+	
 	@GetMapping(path = Constants.SEARCH_ALL, produces = "application/json")
 	public ResponseEntity<List<LabelDTO>> findAll() {
+		log.info("*START - Controller findByIdLabel*");
 		var labelDTO = iLabel.findAll();
+		log.info("*FINISHED - Controller findByIdLabel*");
 		return new ResponseEntity<>(labelDTO, new Util(true).typeStatus(labelDTO));
 	}
 

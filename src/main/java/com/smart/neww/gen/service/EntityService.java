@@ -3,9 +3,6 @@
  */
 package com.smart.neww.gen.service;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import com.smart.neww.gen.dto.EntityDTO;
 import com.smart.neww.gen.entity.EntitySNG;
 import com.smart.neww.gen.interfaces.IEntity;
@@ -14,14 +11,15 @@ import com.smart.neww.gen.repository.IEntityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import lombok.extern.log4j.Log4j2;
+
 /**
  * @author Kevin Candia
  * @date   07-09-2020
  */
+@Log4j2
 @Service
 public class EntityService implements IEntity {
-
-    private static final Logger console = LoggerFactory.getLogger(EntityService.class.toString());
 
     @Autowired
     private IEntityRepository iEntityCategory;
@@ -37,13 +35,13 @@ public class EntityService implements IEntity {
     }
 
     private EntityDTO fillEntityDTO(EntitySNG entity) {
-        console.info("*START - fillEntityDTO");
+        log.info("*START - fillEntityDTO");
 
         if (entity == null) {
             return null;
         }
 
-        console.info("*FINISHED - fillEntityDTO");
+        log.info("*FINISHED - fillEntityDTO");
         return new EntityDTO(
             entity.getIdEntity(),
             entity.getNameEntity(),

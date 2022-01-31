@@ -3,10 +3,10 @@
  */
 package com.smart.neww.gen.service;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import lombok.extern.log4j.Log4j2;
 
 import com.smart.neww.gen.dto.WalletDTO;
 import com.smart.neww.gen.entity.EntitySNG;
@@ -17,10 +17,9 @@ import com.smart.neww.gen.repository.IWalletRepository;
  * @author Kevin Candia
  * @date   01-01-2022
  */
+@Log4j2
 @Service
 public class WalletService implements IWallet {
-
-    private static final Logger console = LoggerFactory.getLogger(WalletService.class.toString());
 
     @Autowired
     private IWalletRepository walletRepository;
@@ -31,7 +30,7 @@ public class WalletService implements IWallet {
     }
 
     private WalletDTO fillWalletDTO(WalletSNG entity) {
-        console.info("*START - fillWalletDTO");
+        log.info("*START - fillWalletDTO");
 
         if (entity == null ||
             entity.getEntity() == null ||
@@ -39,7 +38,7 @@ public class WalletService implements IWallet {
                 return null;
         }
 
-        console.info("*FINISHED - fillWalletDTO");
+        log.info("*FINISHED - fillWalletDTO");
 
         return new WalletDTO(
             entity.getIdWallet(),

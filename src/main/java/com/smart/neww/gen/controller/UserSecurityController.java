@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.log4j.Log4j2;
+
 import javax.validation.Valid;
 
 import com.smart.neww.gen.common.Constants;
@@ -26,11 +26,11 @@ import com.smart.neww.gen.interfaces.IEntity;
  *         23-09-2020
  * 
  */
+@Log4j2
 @RestController
 @RequestMapping(Constants.END_USER)
 public class UserSecurityController {
 
-	private static final Logger log = LoggerFactory.getLogger(UserSecurityController.class.getName());
 	private Util util = new Util(true);
 
 	@Autowired
