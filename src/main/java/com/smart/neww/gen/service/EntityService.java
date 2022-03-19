@@ -3,7 +3,7 @@
  */
 package com.smart.neww.gen.service;
 
-import com.smart.neww.gen.dto.EntityDTO;
+import com.smart.neww.gen.data.EntityDTO;
 import com.smart.neww.gen.entity.EntitySNG;
 import com.smart.neww.gen.interfaces.IEntity;
 import com.smart.neww.gen.repository.IEntityRepository;

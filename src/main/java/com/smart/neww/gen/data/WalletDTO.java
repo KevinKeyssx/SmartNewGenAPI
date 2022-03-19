@@ -1,4 +1,4 @@
-package com.smart.neww.gen.dto;
+package com.smart.neww.gen.data;
 
 import java.io.Serializable;
 import java.util.List;

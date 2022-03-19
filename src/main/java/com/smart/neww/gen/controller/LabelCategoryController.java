@@ -15,8 +15,8 @@ import org.springframework.http.ResponseEntity;
 
 import com.smart.neww.gen.common.Constants;
 import com.smart.neww.gen.common.Util;
-import com.smart.neww.gen.dto.LabelCategoryDTO;
-import com.smart.neww.gen.dto.LabelDTO;
+import com.smart.neww.gen.data.LabelCategoryDTO;
+import com.smart.neww.gen.data.LabelDTO;
 import com.smart.neww.gen.interfaces.ILabelCategory;
 
 /**
@@ -31,22 +31,30 @@ public class LabelCategoryController {
 	@Autowired
 	private ILabelCategory iLabelCategory;
 
-	@GetMapping(path = Constants.SEARCH, produces = "application/json")
-	public ResponseEntity<LabelDTO> findByIdLabel(@RequestParam(value = "number", required = true) Long number) {
-		log.info("*START - Controller findByIdLabel*");
-		var labelDTO = iLabelCategory.findByIdLabel(number);
-		new Util(true).isActive(labelDTO.getActive(), "Label", "ya no está disponible.");
-		log.info("*FINISHED - Controller findByIdLabel*");
-		return new ResponseEntity<>(labelDTO, new Util(true).typeStatus(labelDTO));
-	}
+	// @GetMapping(path = Constants.SEARCH, produces = "application/json")
+	// public ResponseEntity<LabelDTO> findByIdLabel(@RequestParam(value = "number", required = true) Long number) {
+	// 	log.info("*START - Controller findByIdLabel*");
+	// 	var labelDTO = iLabelCategory.findByIdLabel(number);
+	// 	active(labelDTO);
+	// 	// new Util(true).isActive(labelDTO.getActive(), "Label", "ya no está disponible.");
+	// 	log.info("*FINISHED - Controller findByIdLabel*");
+	// 	return new ResponseEntity<>(labelDTO, new Util(true).typeStatus(labelDTO));
+	// }
 
 	@GetMapping(path = Constants.SEARCH_BY_ID, produces = "application/json")
 	public ResponseEntity<LabelCategoryDTO> findByIdLabelCategory(@RequestParam(value = "number", required = true) Long number) {
 		log.info("*START - Controller findByIdLabelCategory*");
 		var labelDTO = iLabelCategory.findByIdLabelCategory(number);
+		// active(labelDTO);
 		new Util(true).isActive(labelDTO.getActive(), "Label", "ya no está disponible.");
 		log.info("*FINISHED - Controller findByIdLabelCategory*");
 		return new ResponseEntity<>(labelDTO, new Util(true).typeStatus(labelDTO));
+	}
+
+	private void active(LabelDTO labelDTO){
+		if (labelDTO != null && labelDTO.getActive() != null) {
+			new Util(true).isActive(labelDTO.getActive(), "Label", "ya no está disponible.");
+		}
 	}
 
 }

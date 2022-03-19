@@ -18,7 +18,7 @@ import javax.validation.Valid;
 
 import com.smart.neww.gen.common.Constants;
 import com.smart.neww.gen.common.Util;
-import com.smart.neww.gen.dto.EntityDTO;
+import com.smart.neww.gen.data.EntityDTO;
 import com.smart.neww.gen.interfaces.IEntity;
 
 /**
@@ -40,8 +40,9 @@ public class UserSecurityController {
 	public ResponseEntity<EntityDTO> findBy(@RequestParam(value = "entity", required = true) String entity) {
 		log.info("*START - Controller findBy*");
 		// Obtenemos la entidad por el tipo
-		EntityDTO entityDTO = util.isLong(entity) ? iEntity.findByIdEntity(util.asLong(entity))
-				: iEntity.findByEmail(entity);
+		EntityDTO entityDTO = util.isLong(entity) ? 
+			iEntity.findByIdEntity(util.asLong(entity)) :
+			iEntity.findByEmail(entity);
 		// Validamos si la entidad sigue activa
 		isActive(entityDTO);
 		log.info("*FINISHED - Controller findBy*");
@@ -58,10 +59,9 @@ public class UserSecurityController {
 	}
 
 	private void isActive(EntityDTO entityDTO) {
-		if (entityDTO == null) {
-			return;
+		if (entityDTO != null) {
+			util.isActive(entityDTO.getActive(), entityDTO.getNameEntity(), entityDTO.getLastEntity());
 		}
-		util.isActive(entityDTO.getActive(), entityDTO.getNameEntity(), entityDTO.getLastEntity());
 	}
 
 }

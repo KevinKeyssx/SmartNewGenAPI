@@ -3,7 +3,7 @@
  */
 package com.smart.neww.gen.interfaces;
 
-import com.smart.neww.gen.dto.EntityDTO;
+import com.smart.neww.gen.data.EntityDTO;
 
 /**
  * @author Kevin Candia

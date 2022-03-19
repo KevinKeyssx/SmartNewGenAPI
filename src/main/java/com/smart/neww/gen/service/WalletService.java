@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import lombok.extern.log4j.Log4j2;
 
-import com.smart.neww.gen.dto.WalletDTO;
+import com.smart.neww.gen.data.WalletDTO;
 import com.smart.neww.gen.entity.EntitySNG;
 import com.smart.neww.gen.entity.WalletSNG;
 import com.smart.neww.gen.interfaces.IWallet;

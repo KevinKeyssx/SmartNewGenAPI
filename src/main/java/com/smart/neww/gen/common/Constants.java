@@ -35,6 +35,14 @@ public class Constants {
 
 	public static final String END_USER = VERSION + "/user";
 
+	public static final String DEFAULT_PAGE = "0";
+
+	public static final String DEFAULT_SIZE = "10";
+
+	public static final String DEFAULT_ORDER = "idLabel";
+
+	public static final String DEFAULT_ASC = "true";
+
 	private Constants() {
 		throw new IllegalAccessError();
 	}

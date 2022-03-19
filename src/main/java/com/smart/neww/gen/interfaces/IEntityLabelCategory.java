@@ -1,6 +1,6 @@
 package com.smart.neww.gen.interfaces;
 
-import com.smart.neww.gen.dto.EntityLabelCategoryDTO;
+import com.smart.neww.gen.data.EntityLabelCategoryDTO;
 /**
  * @author Kevin Candia
  * @date 02-01-2022

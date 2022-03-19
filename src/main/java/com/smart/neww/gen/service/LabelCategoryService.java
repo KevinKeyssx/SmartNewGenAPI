@@ -10,8 +10,8 @@ import org.springframework.stereotype.Service;
 
 import lombok.extern.log4j.Log4j2;
 
-import com.smart.neww.gen.dto.LabelCategoryDTO;
-import com.smart.neww.gen.dto.LabelDTO;
+import com.smart.neww.gen.data.LabelCategoryDTO;
+import com.smart.neww.gen.data.LabelDTO;
 import com.smart.neww.gen.entity.LabelCategorySNG;
 import com.smart.neww.gen.entity.LabelSNG;
 import com.smart.neww.gen.interfaces.ILabelCategory;

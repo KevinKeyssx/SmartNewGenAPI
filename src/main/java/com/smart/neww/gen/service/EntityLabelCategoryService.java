@@ -3,9 +3,9 @@ package com.smart.neww.gen.service;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.smart.neww.gen.dto.EntityDTO;
-import com.smart.neww.gen.dto.EntityLabelCategoryDTO;
-import com.smart.neww.gen.dto.LabelCategoryDTO;
+import com.smart.neww.gen.data.EntityDTO;
+import com.smart.neww.gen.data.EntityLabelCategoryDTO;
+import com.smart.neww.gen.data.LabelCategoryDTO;
 import com.smart.neww.gen.entity.EntityLabelCategorySNG;
 import com.smart.neww.gen.entity.EntitySNG;
 import com.smart.neww.gen.interfaces.IEntityLabelCategory;

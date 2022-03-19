@@ -5,7 +5,7 @@ package com.smart.neww.gen.controller;
 
 import com.smart.neww.gen.common.Constants;
 import com.smart.neww.gen.common.Util;
-import com.smart.neww.gen.dto.WalletDTO;
+import com.smart.neww.gen.data.WalletDTO;
 import com.smart.neww.gen.entity.EntitySNG;
 import com.smart.neww.gen.interfaces.IWallet;
 

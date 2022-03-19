@@ -14,7 +14,7 @@ import lombok.extern.log4j.Log4j2;
 
 import com.smart.neww.gen.common.Constants;
 import com.smart.neww.gen.common.Util;
-import com.smart.neww.gen.dto.EntityLabelCategoryDTO;
+import com.smart.neww.gen.data.EntityLabelCategoryDTO;
 import com.smart.neww.gen.interfaces.IEntityLabelCategory;
 
 /**

@@ -3,8 +3,8 @@
  */
 package com.smart.neww.gen.interfaces;
 
-import com.smart.neww.gen.dto.LabelCategoryDTO;
-import com.smart.neww.gen.dto.LabelDTO;
+import com.smart.neww.gen.data.LabelCategoryDTO;
+import com.smart.neww.gen.data.LabelDTO;
 
 /**
  * @author Kevin Candia

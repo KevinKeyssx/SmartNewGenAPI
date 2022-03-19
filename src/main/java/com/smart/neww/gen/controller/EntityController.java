@@ -5,7 +5,7 @@ package com.smart.neww.gen.controller;
 
 import com.smart.neww.gen.common.Constants;
 import com.smart.neww.gen.common.Util;
-import com.smart.neww.gen.dto.EntityDTO;
+import com.smart.neww.gen.data.EntityDTO;
 import com.smart.neww.gen.interfaces.IEntity;
 
 import org.springframework.beans.factory.annotation.Autowired;
