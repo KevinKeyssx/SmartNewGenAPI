@@ -3,8 +3,6 @@
  */
 package com.smart.neww.gen.interfaces;
 
-import java.util.List;
-
 import com.smart.neww.gen.data.LabelDTO;
 
 import org.springframework.data.domain.Page;
@@ -18,8 +16,10 @@ public interface ILabel {
 
 	public LabelDTO findByIdLabel(Long idLabel);
 
-	public List<LabelDTO> findAll();
-
 	public Page<LabelDTO> findAll(Pageable labelPage);
+
+	public void save(LabelDTO labelDTO);
+
+	public void deleteById(Long idLabel);
 
 }

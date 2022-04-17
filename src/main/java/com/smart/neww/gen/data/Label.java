@@ -27,7 +27,7 @@ public class Label implements Serializable {
     private static final long serialVersionUID = 1L;
 
     public Label(long idLabel) {
-		this.idLabel = idLabel;
+      this.idLabel = idLabel;
     }
 
 }

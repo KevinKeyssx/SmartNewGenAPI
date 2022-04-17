@@ -31,7 +31,13 @@ public class Constants {
 
 	public static final String SEARCH_ALL = "/searchall";
 
-	public static final String INSERT = "/insert";
+	public static final String SAVE = "/save";
+
+	public static final String SUCCESS_SAVE_LABEL = "Etiqueta guardada correctamente.";
+
+	public static final String DELETE = "/delete";
+
+	public static final String SUCCESS_DELETE_LABEL = "Etiqueta eliminada correctamente.";
 
 	public static final String END_USER = VERSION + "/user";
 

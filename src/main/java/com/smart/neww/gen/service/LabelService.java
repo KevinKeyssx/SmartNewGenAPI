@@ -38,17 +38,17 @@ public class LabelService implements ILabel {
 	}
 
 	@Override
-	public List<LabelDTO> findAll() {
-		log.info("*START - findAll*");
-		List<LabelSNG> labels = iLabel.findAll();
-		List<LabelDTO> labelDTO = new ArrayList<>();
+	public void save(LabelDTO labelDTO) {
+		log.info("*START - save Label*");
+		iLabel.save(fillToLabelSNG(labelDTO));
+		log.info("*FINISHED - save Label*");
+	}
 
-		for (LabelSNG label : labels) {
-			labelDTO.add(fillToLabelDTO(label));
-		}
-
-		log.info("*FINISHED - findAll*");
-		return labelDTO;
+	@Override
+	public void deleteById(Long idLabel) {
+		log.info("*START - deleteByIdLabel*");
+		iLabel.deleteById(idLabel);
+		log.info("*FINISHED - deleteByIdLabel*");
 	}
 
 	private LabelDTO fillToLabelDTO(LabelSNG label) {
@@ -61,6 +61,18 @@ public class LabelService implements ILabel {
 			label.getActive(),
 			label.getComment(),
 			null
+		);
+	}
+
+	private LabelSNG fillToLabelSNG(LabelDTO label) {
+		if (label == null) {
+			return null;
+		}
+		return new LabelSNG(
+			label.getIdLabel(),
+			label.getDescription(),
+			label.getActive(),
+			label.getComment()
 		);
 	}
 

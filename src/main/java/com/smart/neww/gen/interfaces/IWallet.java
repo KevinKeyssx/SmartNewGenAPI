@@ -10,4 +10,8 @@ public interface IWallet {
 
     public WalletDTO findByEntity(EntitySNG entity);
 
+    public void save(WalletDTO walletDTO);
+
+    public void deleteById(Long idWallet);
+
 }

@@ -25,4 +25,6 @@ public class LabelCategoryDTO extends Label {
 
 	private String skills;
 
+	private Long idLabelCategory;
+
 }

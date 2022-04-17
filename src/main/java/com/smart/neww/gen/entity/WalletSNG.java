@@ -16,6 +16,7 @@ import javax.persistence.Table;
 
 import com.smart.neww.gen.common.ConstantsDB;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -25,6 +26,7 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = ConstantsDB.TABLE_WALLET, schema = ConstantsDB.SCHEMA)
 public class WalletSNG implements Serializable{
@@ -39,11 +41,11 @@ public class WalletSNG implements Serializable{
     private Long idWallet;
 
     @OneToOne
-	@JoinColumn(name = "idsentity", nullable = false)
+	@JoinColumn(name = "idsentity", nullable = false, unique = true)
     private EntitySNG entity;
 
     @Column(name = "smoneysng", nullable = true)
-	private Long sngMoney;
+	private Long money;
 
     private static final long serialVersionUID = 1L;
 

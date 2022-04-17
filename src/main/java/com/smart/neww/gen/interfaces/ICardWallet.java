@@ -3,6 +3,7 @@
  */
 package com.smart.neww.gen.interfaces;
 
+import com.smart.neww.gen.data.CardWalletDTO;
 import com.smart.neww.gen.data.WalletDTO;
 
 /**
@@ -12,5 +13,9 @@ import com.smart.neww.gen.data.WalletDTO;
 public interface ICardWallet {
 
     public WalletDTO findByIdWallet(Long idWallet);
+
+    public void save(CardWalletDTO cardWallet);
+
+	public void deleteById(Long idCard);
 
 }

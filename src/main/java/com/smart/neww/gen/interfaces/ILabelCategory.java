@@ -16,4 +16,8 @@ public interface ILabelCategory {
 
 	public LabelCategoryDTO findByIdLabelCategory(Long idLabel);
 
+	public void save(LabelCategoryDTO labelCategoryDTO);
+
+    public void deleteById(Long idLabel);
+
 }

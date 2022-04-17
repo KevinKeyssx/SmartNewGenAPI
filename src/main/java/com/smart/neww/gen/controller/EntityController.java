@@ -29,19 +29,21 @@ public class EntityController {
     @Autowired
 	private IEntity iEntity;
 
-    @GetMapping(path = Constants.SEARCH_BY_ID, produces = "application/json")
-	public ResponseEntity<EntityDTO> findIdEntity(@RequestParam(value = "entity", required = true) Long entity) {
-		log.info("*START - Controller findIdEntity*");
-		var entityDTO = iEntity.findByIdEntity(entity);
-		log.info("*FINISHED - Controller findIdEntity*");
-		return new ResponseEntity<>(entityDTO, new Util(true).typeStatus(entityDTO));
-	}
-
-    @GetMapping(path = Constants.SEARCH, produces = "application/json")
-	public ResponseEntity<EntityDTO> findEmailEntity(@RequestParam(value = "email", required = true) String email) {
-		log.info("*START - Controller findEmailEntity*");
-		var entityDTO = iEntity.findByEmail(email);
-		log.info("*FINISHED - Controller findEmailEntity*");
+	@GetMapping(path = Constants.SEARCH, produces = "application/json")
+	public ResponseEntity<EntityDTO> findEmailEntity(
+			@RequestParam(value = "email", required = false) String email,
+			@RequestParam(value = "entity", required = false) Long entity) {
+		EntityDTO entityDTO = null;
+		if (email != null && !email.isEmpty()) {
+			log.info("*START - Controller findEmailEntity*");
+			entityDTO = iEntity.findByEmail(email);
+			log.info("*FINISHED - Controller findEmailEntity*");
+		}
+		else if (entity != null && new Util(true).isLong(entity.toString()) && entity > 0) {
+			log.info("*START - Controller findIdEntity*");
+			entityDTO = iEntity.findByIdEntity(entity);
+			log.info("*FINISHED - Controller findIdEntity*");
+		}
 		return new ResponseEntity<>(entityDTO, new Util(true).typeStatus(entityDTO));
 	}
 

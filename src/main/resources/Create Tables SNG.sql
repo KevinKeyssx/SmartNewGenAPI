@@ -1,4 +1,8 @@
 CREATE SCHEMA smartnewgentest;
+
+
+--sudo docker run -dp 5432:5432 --name docker_postgres -e POSTGRES_PASSWORD=1234 postgres
+
 CREATE TABLE SNGLABEL(--ETIQUETA 	
 	IDSLABEL		SERIAL PRIMARY KEY not NULL,														 		--ID ETIQUETA
 	SLABDESC		VARCHAR(50) UNIQUE NOT NULL,															 	--DESCRIPCION NOMBRE
@@ -36,12 +40,16 @@ insert into smartnewgentest.snglabel_categ values (10, true, 'Nivel Dios', 'Dios
 
 SELECT labelskills -> 'min' AS maxLevel FROM smartnewgentest.snglabel_categ;
 
+insert into smartnewgentest.SNGWALLET_ENTITY values (1, 1, 100000);
+
 CREATE TABLE SNGWALLET_ENTITY(/*BILLETERA DE LA ENTIDAD*/
 	IDSWALLET		SERIAL PRIMARY KEY NOT NULL,																--ID DE LA BILLETA DE LA ENTIDAD
 	IDSENTITY		INT NOT NULL,																				--ID DE LA ENTIDAD
 	SMONEYSNG		INT DEFAULT 0 NOT NULL																		--DINERO
 	CONSTRAINT ENTITY_WALLET FOREIGN KEY (IDSENTITY) REFERENCES SNGENTITY(IDSENTITY)							--FK DE LA ENTIDAD
 );
+
+insert into smartnewgentest.SNGCARD_WALLET values (1, true, 'Nivel Dios', 'Dios de la Compra', '{"min": 1001,"max":1000000}', 2);
 
 CREATE TABLE SNGCARD_WALLET(/*TABLA TARJETA EN LA BILLETERA*/
 	IDSCARD			SERIAL PRIMARY KEY NOT NULL,																--ID DE LA TARJETA DE LA ENTIDAD

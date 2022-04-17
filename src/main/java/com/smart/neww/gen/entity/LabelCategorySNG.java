@@ -21,18 +21,33 @@ import com.vladmihalcea.hibernate.type.json.JsonStringType;
 import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
 
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
  * @author Kevin Candia
  * 07-09-2020
  */
-@Data
+@Setter
+@Getter
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = ConstantsDB.TABLE_LABELCATEGORY, schema = ConstantsDB.SCHEMA)
 @TypeDef(name = "json", typeClass = JsonStringType.class)
 @TypeDef(name = "jsonb", typeClass = JsonBinaryType.class)
 public class LabelCategorySNG implements Serializable{
+
+	// public LabelCategorySNG(Long idLabelCategory, String description, String skills, Boolean active, String comment, Long idLabel) {
+	// 	this.idLabelCategory = idLabelCategory;
+	// 	this.description = description;
+	// 	this.skills = skills;
+	// 	this.active = active;
+	// 	this.comment = comment;
+	// 	this.setLabels(idLabel);
+	// }
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -60,6 +60,20 @@ public class LabelCategoryService implements ILabelCategory {
 		return fillLabelCategoryDTO(labelCategorysSNG);
 	}
 
+	@Override
+	public void save(LabelCategoryDTO labelCategoryDTO) {
+		log.info("*START - save Label*");
+		iLabelCategory.save(fillLabelCategorySNG(labelCategoryDTO));
+		log.info("*FINISHED - save Label*");
+	}
+
+	@Override
+	public void deleteById(Long idLabel) {
+		log.info("*START - save Label*");
+		iLabelCategory.deleteById(idLabel);
+		log.info("*FINISHED - save Label*");
+	}
+
 	private LabelCategoryDTO fillLabelCategoryDTO(LabelCategorySNG labelCategorysSNG) {
 		if (labelCategorysSNG == null) {
 			return null;
@@ -72,4 +86,20 @@ public class LabelCategoryService implements ILabelCategory {
 			labelCategorysSNG.getSkills()
 		);
 	}
+
+	private LabelCategorySNG fillLabelCategorySNG(LabelCategoryDTO labelCategorysDTO) {
+		if (labelCategorysDTO == null) {
+			return null;
+		}
+
+		return new LabelCategorySNG(
+			labelCategorysDTO.getIdLabelCategory(), 
+			new LabelSNG(labelCategorysDTO.getIdLabel()),
+			labelCategorysDTO.getDescription(), 
+			labelCategorysDTO.getSkills(),
+			labelCategorysDTO.getActive(), 
+			labelCategorysDTO.getComment() 
+		);
+	}
+
 }

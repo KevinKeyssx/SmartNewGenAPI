@@ -17,6 +17,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -27,6 +28,7 @@ import com.smart.neww.gen.common.ConstantsDB;
  * 09-03-2021
  */
 @Data
+@AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = ConstantsDB.TABLE_CARD_WALLET, schema = ConstantsDB.SCHEMA)
@@ -44,7 +46,7 @@ public class CardWalletSNG implements Serializable {
     @Column(name = "sdesccard", nullable = false, length = 100)
     private String descriptionCard;
 
-    @Column(name = "snumbercard", nullable = false, length = 255)
+    @Column(name = "snumbercard", nullable = false, length = 255, unique = true)
     private String numberCard;
 
     @Temporal(TemporalType.DATE)
